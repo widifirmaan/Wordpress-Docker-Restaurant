@@ -36,8 +36,8 @@ Tidak perlu restore manual atau konfigurasi rumit. Database dan file sudah disia
 
 4.  Tunggu sejenak (1-2 menit) untuk proses inisialisasi database.
 5.  Akses website melalui browser:
-    *   **Frontend**: [https://restaurant.widifirmaan.web.id](https://restaurant.widifirmaan.web.id)
-    *   **Dashboard Admin**: [https://restaurant.widifirmaan.web.id/wp-admin](https://restaurant.widifirmaan.web.id/wp-admin)
+    *   **Frontend**: [http://localhost:8082](http://localhost:8082)
+    *   **Dashboard Admin**: [http://localhost:8082/wp-admin](http://localhost:8082/wp-admin)
 
 ## 🔑 Informasi Login
 
@@ -60,7 +60,7 @@ Berikut adalah file-file kunci dalam restorasi ini:
 Untuk membuat arsip ini berjalan di environment lokal (`localhost`), beberapa penyesuaian teknis telah dilakukan:
 
 1.  **Database URL Replacement**:
-    Seluruh link di database telah diubah dari domain lama `http://www.gksteak.com` menjadi `https://restaurant.widifirmaan.web.id`.
+    Seluruh link di database telah diubah dari domain lama `http://www.gksteak.com` menjadi `http://localhost:8082`.
     
 2.  **Table Prefix Fix**:
     Backup asli menggunakan prefix database `wp2o_`. Konfigurasi WordPress disesuaikan secara manual karena environment variable standar tidak mendeteksi prefix ini.
