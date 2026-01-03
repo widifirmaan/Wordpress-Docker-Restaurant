@@ -36,8 +36,8 @@ Tidak perlu restore manual atau konfigurasi rumit. Database dan file sudah disia
 
 4.  Tunggu sejenak (1-2 menit) untuk proses inisialisasi database.
 5.  Akses website melalui browser:
-    *   **Frontend**: [http://localhost:8080](http://localhost:8080)
-    *   **Dashboard Admin**: [http://localhost:8080/wp-admin](http://localhost:8080/wp-admin)
+    *   **Frontend**: [http://localhost:8082](http://localhost:8082)
+    *   **Dashboard Admin**: [http://localhost:8082/wp-admin](http://localhost:8082/wp-admin)
 
 ## 🔑 Informasi Login
 
