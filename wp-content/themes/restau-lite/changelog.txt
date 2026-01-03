@@ -1,0 +1,18 @@
+* 1.0.3 - 26/09/2018
+====================
+- Fixed: Error while updating a gallery on admin panel
+
+
+* 1.0.2 - 21/03/2017
+====================
+- Improved: Several improvements to the code
+
+
+* 1.0.1 - 10/01/2017
+====================
+- Updated
+
+
+* 1.0.0 - 13/12/2016
+====================
+- Released

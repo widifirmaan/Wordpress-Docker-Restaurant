@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (C) 2014-2020 ServMask Inc.
+ * Copyright (C) 2014-2025 ServMask Inc.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,6 +14,8 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Attribution: This code is part of the All-in-One WP Migration plugin, developed by
  *
  * ███████╗███████╗██████╗ ██╗   ██╗███╗   ███╗ █████╗ ███████╗██╗  ██╗
  * ██╔════╝██╔════╝██╔══██╗██║   ██║████╗ ████║██╔══██╗██╔════╝██║ ██╔╝
@@ -32,7 +34,7 @@ class Ai1wm_Export_Download {
 	public static function execute( $params ) {
 
 		// Set progress
-		Ai1wm_Status::info( __( 'Renaming exported file...', AI1WM_PLUGIN_NAME ) );
+		Ai1wm_Status::info( __( 'Renaming export file...', 'all-in-one-wp-migration' ) );
 
 		// Open the archive file for writing
 		$archive = new Ai1wm_Compressor( ai1wm_archive_path( $params ) );
@@ -59,22 +61,47 @@ class Ai1wm_Export_Download {
 			$name = ai1wm_site_name( $blog_id );
 
 			// Set progress
-			Ai1wm_Status::download(
-				sprintf(
-					__(
-						'<a href="%s" class="ai1wm-button-green ai1wm-emphasize ai1wm-button-download" title="%s" download="%s">' .
-						'<span>Download %s</span>' .
-						'<em>Size: %s</em>' .
-						'</a>',
-						AI1WM_PLUGIN_NAME
-					),
-					$link,
-					$name,
-					$file,
-					$name,
-					$size
-				)
-			);
+			if ( ai1wm_direct_download_supported() ) {
+				Ai1wm_Status::download(
+					sprintf(
+						/* translators: 1: Link to archive, 2: Archive title, 3: File name, 4: Archive title, 5: File size. */
+						__(
+							'<a href="%1$s" class="ai1wm-button-green ai1wm-emphasize ai1wm-button-download" title="%2$s" download="%3$s">
+							<span>Download %2$s</span>
+							<em>Size: %4$s</em>
+							</a>',
+							'all-in-one-wp-migration'
+						),
+						$link,
+						$name,
+						$file,
+						$size
+					)
+				);
+			} else {
+				Ai1wm_Status::download(
+					sprintf(
+						/* translators: 1: Archive title, 2: File name, 3: Archive title, 4: File size. */
+						__(
+							'<a href="#" class="ai1wm-button-green ai1wm-emphasize ai1wm-direct-download" title="%1$s" download="%2$s">
+							<span>Download %3$s</span>
+							<em>Size: %4$s</em>
+							</a>',
+							'all-in-one-wp-migration'
+						),
+						$name,
+						$file,
+						$name,
+						$size
+					)
+				);
+			}
+		}
+
+		do_action( 'ai1wm_status_export_done', $params );
+
+		if ( isset( $params['ai1wm_manual_backup'] ) ) {
+			do_action( 'ai1wm_status_backup_created', $params );
 		}
 
 		return $params;

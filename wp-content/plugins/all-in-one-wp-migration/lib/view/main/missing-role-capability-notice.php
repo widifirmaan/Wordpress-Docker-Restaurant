@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (C) 2014-2020 ServMask Inc.
+ * Copyright (C) 2014-2025 ServMask Inc.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,6 +14,8 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Attribution: This code is part of the All-in-One WP Migration plugin, developed by
  *
  * ███████╗███████╗██████╗ ██╗   ██╗███╗   ███╗ █████╗ ███████╗██╗  ██╗
  * ██╔════╝██╔════╝██╔══██╗██║   ██║████╗ ████║██╔══██╗██╔════╝██║ ██╔╝
@@ -31,10 +33,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 <div class="error">
 	<p>
 		<?php
-		_e(
-			'All-in-One WP Migration: Your current profile role does not have Export/Import capabilities enabled. ' .
-			'<a href="https://help.servmask.com/knowledgebase/how-to-add-import-and-export-capabilities-to-wordpress-users/" target="_blank">Technical details</a>',
-			AI1WM_PLUGIN_NAME
+		echo wp_kses(
+			__(
+				'Your current profile role does not have Export/Import capabilities enabled.
+				<a href="https://help.servmask.com/knowledgebase/how-to-add-import-and-export-capabilities-to-wordpress-users/" target="_blank">Technical details</a>',
+				'all-in-one-wp-migration'
+			),
+			ai1wm_allowed_html_tags()
 		);
 		?>
 	</p>

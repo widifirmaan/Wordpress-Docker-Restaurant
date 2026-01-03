@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (C) 2014-2020 ServMask Inc.
+ * Copyright (C) 2014-2025 ServMask Inc.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -15,6 +15,8 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
+ * Attribution: This code is part of the All-in-One WP Migration plugin, developed by
+ *
  * ███████╗███████╗██████╗ ██╗   ██╗███╗   ███╗ █████╗ ███████╗██╗  ██╗
  * ██╔════╝██╔════╝██╔══██╗██║   ██║████╗ ████║██╔══██╗██╔════╝██║ ██╔╝
  * ███████╗█████╗  ██████╔╝██║   ██║██╔████╔██║███████║███████╗█████╔╝
@@ -28,6 +30,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 class Ai1wm_Database_Mysql extends Ai1wm_Database {
+
+	/**
+	 * Check whether table has auto increment attribute
+	 *
+	 * @param  string  $table_name Table name
+	 * @return boolean
+	 */
+	public function has_auto_increment( $table_name ) {
+		return stripos( $this->get_create_table( $table_name ), 'AUTO_INCREMENT' ) !== false;
+	}
 
 	/**
 	 * Run MySQL query
@@ -51,7 +63,7 @@ class Ai1wm_Database_Mysql extends Ai1wm_Database {
 			// MySQL server has gone away, try to reconnect
 			if ( empty( $this->wpdb->dbh ) || 2006 === $mysql_errno ) {
 				if ( ! $this->wpdb->check_connection( false ) ) {
-					throw new Ai1wm_Database_Exception( __( 'Error reconnecting to the database. <a href="https://help.servmask.com/knowledgebase/mysql-error-reconnecting/" target="_blank">Technical details</a>', AI1WM_PLUGIN_NAME ), 503 );
+					throw new Ai1wm_Database_Exception( __( 'Error reconnecting to the database. <a href="https://help.servmask.com/knowledgebase/mysql-error-reconnecting/" target="_blank">Technical details</a>', 'all-in-one-wp-migration' ), 503 );
 				}
 
 				$result = mysql_query( $input, $this->wpdb->dbh );
@@ -62,7 +74,7 @@ class Ai1wm_Database_Mysql extends Ai1wm_Database {
 	}
 
 	/**
-	 * Escape string input for mysql query
+	 * Escape string input for MySQL query
 	 *
 	 * @param  string $input String to escape
 	 * @return string
@@ -90,51 +102,51 @@ class Ai1wm_Database_Mysql extends Ai1wm_Database {
 	}
 
 	/**
-	 * Return server version
+	 * Return server info
 	 *
 	 * @return string
 	 */
-	public function version() {
+	public function server_info() {
 		return mysql_get_server_info( $this->wpdb->dbh );
 	}
 
 	/**
 	 * Return the result from MySQL query as associative array
 	 *
-	 * @param  resource $result MySQL resource
+	 * @param  mixed $result MySQL resource
 	 * @return array
 	 */
-	public function fetch_assoc( $result ) {
+	public function fetch_assoc( &$result ) {
 		return mysql_fetch_assoc( $result );
 	}
 
 	/**
 	 * Return the result from MySQL query as row
 	 *
-	 * @param  resource $result MySQL resource
+	 * @param  mixed $result MySQL resource
 	 * @return array
 	 */
-	public function fetch_row( $result ) {
+	public function fetch_row( &$result ) {
 		return mysql_fetch_row( $result );
 	}
 
 	/**
 	 * Return the number for rows from MySQL results
 	 *
-	 * @param  resource $result MySQL resource
+	 * @param  mixed $result MySQL resource
 	 * @return integer
 	 */
-	public function num_rows( $result ) {
+	public function num_rows( &$result ) {
 		return mysql_num_rows( $result );
 	}
 
 	/**
 	 * Free MySQL result memory
 	 *
-	 * @param  resource $result MySQL resource
+	 * @param  mixed $result MySQL resource
 	 * @return boolean
 	 */
-	public function free_result( $result ) {
+	public function free_result( &$result ) {
 		return mysql_free_result( $result );
 	}
 }

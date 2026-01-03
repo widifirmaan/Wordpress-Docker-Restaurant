@@ -1,0 +1,11 @@
+/*
+Description: Used to style the TinyMCE editor.
+*/
+
+html{
+	padding: 30px;
+}
+body {
+	font-family: Montserrat, sans-serif;
+	background-color: #fff !important;
+}

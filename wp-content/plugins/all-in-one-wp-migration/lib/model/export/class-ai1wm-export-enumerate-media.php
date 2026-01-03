@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (C) 2014-2020 ServMask Inc.
+ * Copyright (C) 2014-2025 ServMask Inc.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,6 +14,8 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Attribution: This code is part of the All-in-One WP Migration plugin, developed by
  *
  * ███████╗███████╗██████╗ ██╗   ██╗███╗   ███╗ █████╗ ███████╗██╗  ██╗
  * ██╔════╝██╔════╝██╔══██╗██║   ██║████╗ ████║██╔══██╗██╔════╝██║ ██╔╝
@@ -48,7 +50,7 @@ class Ai1wm_Export_Enumerate_Media {
 		}
 
 		// Set progress
-		Ai1wm_Status::info( __( 'Retrieving a list of WordPress media files...', AI1WM_PLUGIN_NAME ) );
+		Ai1wm_Status::info( __( 'Gathering media files...', 'all-in-one-wp-migration' ) );
 
 		// Exclude selected files
 		if ( isset( $params['options']['exclude_files'], $params['excluded_files'] ) ) {
@@ -70,7 +72,7 @@ class Ai1wm_Export_Enumerate_Media {
 				$iterator = new Ai1wm_Recursive_Directory_Iterator( ai1wm_get_uploads_dir() );
 
 				// Exclude media files
-				$iterator = new Ai1wm_Recursive_Exclude_Filter( $iterator, apply_filters( 'ai1wm_exclude_media_from_export', $exclude_filters ) );
+				$iterator = new Ai1wm_Recursive_Exclude_Filter( $iterator, apply_filters( 'ai1wm_exclude_media_from_export', ai1wm_media_filters( $exclude_filters ) ) );
 
 				// Recursively iterate over content directory
 				$iterator = new Ai1wm_Recursive_Iterator_Iterator( $iterator, RecursiveIteratorIterator::LEAVES_ONLY, RecursiveIteratorIterator::CATCH_GET_CHILD );
@@ -90,7 +92,7 @@ class Ai1wm_Export_Enumerate_Media {
 		}
 
 		// Set progress
-		Ai1wm_Status::info( __( 'Done retrieving a list of WordPress media files.', AI1WM_PLUGIN_NAME ) );
+		Ai1wm_Status::info( __( 'Media files gathered.', 'all-in-one-wp-migration' ) );
 
 		// Set total media files count
 		$params['total_media_files_count'] = $total_media_files_count;

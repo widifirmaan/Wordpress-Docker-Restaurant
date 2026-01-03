@@ -1,0 +1,375 @@
+@media (max-width: @screen-xs-max) {
+
+
+	/*
+	Header
+	========================================== 
+	*/
+
+	#header{
+		position: relative;
+		padding: 10px 0 0;
+	}
+	.logo_container{
+		position: relative;
+		display: block;
+		float: none;
+		margin-right: 0;
+	}
+
+	.slogan{
+		.font-size(26);
+		line-height: 32px;
+		text-align: center;
+		margin: 15px 0;
+	}
+
+
+	.menu_wrap{
+		margin-top: 0.625rem;
+	}
+
+	#ql-navigation{
+		padding: 0;
+	}
+	#jqueryslidemenu{
+		margin-bottom: 0;
+		margin-top: 0;
+		float: none;
+		text-align: left;
+		border-top: none;
+	}
+	#jqueryslidemenu #nav{
+		border-top: none;
+	}
+	#jqueryslidemenu ul.nav > li{
+		display: inline-block;
+		width: 49%;
+	}
+
+	#ql_nav_collapse{
+		padding: 0;
+		padding-top: 10px;
+		border-top: none;
+		.box-shadow(none);
+	}
+	.navbar-nav .open .dropdown-menu{
+		display: block;
+		width: 100%;
+		.box-shadow(none);
+	}
+	.dropdown-submenu > .dropdown-menu{
+		left: 0;
+		position: relative;
+		padding-left: 20px;
+	}
+	.col-right{
+		text-align: center;
+	}
+	#header .nav_social{
+		line-height: 5px;
+	}
+	.nav_social li{
+		float: none;
+		display: inline-block;
+	}
+
+
+
+
+
+
+
+	/*1st sub level menu*/
+	#ql-navigation .navbar-nav{
+		margin: 0;
+	}
+	#jqueryslidemenu ul.nav > li > ul{
+		position: relative;
+		top: 0;
+		padding: 0;
+	}
+	.dropdown:hover .dropdown-menu {
+	    display: none;
+	 }
+	 .dropdown.open:hover .dropdown-menu {
+	    display: block;
+	    width: 100%;
+	 }
+	#jqueryslidemenu ul.nav > li > ul > li.menu-item-has-children{
+		display: block;
+		width: 100%;
+		padding: 5px 20px;
+	}
+
+	#jqueryslidemenu ul.nav > li > ul > li.has-image{
+		display: none;
+	}
+
+
+	/*
+	Welcome
+	---------------------------------------*/
+	.welcome-image{
+		padding-bottom: 42%;
+	}
+	.home-buttons{
+
+			.home-button{
+				width: 100%;
+				padding-bottom: 39%;
+				
+					.home-button-content{
+
+							span{
+								.font-size(18);
+							}
+					}
+
+					&.reservations-button{
+							.book-table-btn{
+								display: none;
+							}
+					}
+			}
+	}
+	/*
+	About Us
+	---------------------------------------*/
+	.about-us-section{
+
+			.location{
+				margin-bottom: 2.5em;
+
+					.map-wrap{
+						padding-bottom: 65%;
+					}
+					.location-content{
+						padding: 30px;
+					}
+			}
+
+			.about-us-box{
+				.ql_shadow;
+				background: repeat url(images/wood.jpg);
+				border-radius: 30px;
+				overflow: hidden;
+				color: #fff;
+				position: relative;
+
+					.about-us-box-content{
+						padding: 2.1875em;
+							.style-title{
+								.font-size(35);
+									span{
+										.font-size(37);
+									}
+							}
+							p{
+								color: @gray-light;
+							}
+							.menu{
+
+									.nav_social{
+
+											li{
+												margin: 0.3125em;
+
+													a{
+														.font-size(24);
+														line-height: 55px;
+														width: 55px;
+														height: 55px;
+
+															&::before{
+																.font-size(20);
+															}
+													}
+											}
+									}
+							}
+					}
+
+			}
+	}
+
+	/*
+	Gallery Section
+	--------------------------------
+	*/
+	.gallery-section{
+		.gallery-content{
+			width: 100%;
+			padding: 40px;
+			position: relative;
+			.translate(0;0);
+				.style-title{
+					.font-size(35);
+						span{
+							.font-size(37);
+						}
+				}
+		}
+		.gallery-image{
+		    padding-bottom: 50%;
+		    float: none;
+		    width: 100%;
+		}
+	}
+	/*
+	Reservation Section
+	--------------------------------
+	*/
+	.reservation-section{
+
+			.reservation-content{
+				margin: 0 0 5% 0;
+
+					.style-title{
+						.font-size(39);
+							span{
+								.font-size(37);
+							}
+					}
+
+					.reservation-hours{
+						width: 100%;
+					}
+			}
+
+	}
+
+	/*
+	Menu Section
+	---------------------------------------*/
+	.menu-section{
+			
+			.style-title{
+				margin-bottom: 1.875rem;
+			}
+
+			.menu-slider{
+				padding: 2.5rem;
+
+					.menu-slide{
+						width: 95%;
+						margin: 0 2.4%;
+							.menu-slide-title{
+								margin-bottom: 2.5rem;
+							}
+
+							ul{
+
+									li{
+										display: block;
+										width: 100%;
+										margin: 0 0 5%;
+
+											.menu-item-title{
+												.font-size(20);
+											}
+											.menu-item-desc{
+												.font-size(13);
+												padding-right: 24%;
+												margin-bottom: 6%;
+											}
+											.menu-item-price{
+												.font-size(30);
+											}
+		
+									}
+							}
+					}
+					.flickity-prev-next-button.previous{
+						left: 5px;
+						display: none;
+					}
+					.flickity-prev-next-button.next{
+						right: 5px;
+						display: none;
+					}
+			}
+	}
+
+	/*
+	Blog Section
+	---------------------------------------*/
+	.blog-section{
+		padding: 7% 0;
+	}
+	.blog-wrap .blog-item{
+		width: 100%;
+	}
+	/*
+	Testimonials Section
+	---------------------------------------*/
+	.testimonial{
+		padding: 0 5%;
+	}
+	.testimonial blockquote{
+		.font-size(18);
+	}
+
+	
+	/*
+	Content
+	--------------------------------
+	*/
+	.metadata{
+		display: block;
+	}
+	.metadata ul li{
+		float: left;
+	}
+
+
+	/*
+	Sidebar
+	========================================== 
+	*/
+	#sidebar{
+		padding-right: 0;
+	}
+
+
+
+
+
+
+	/*Comments Form---------------------------------------------------*/
+	#respond .input-wrap{
+		width:100%;
+	}
+
+
+
+
+	
+	/*
+	Footer
+	========================================== 
+	*/
+	.sub_footer p{
+		margin-bottom: 20px;
+		float: none;
+		line-height: 1.6em;
+	}
+	.nav_social{
+		float: none;
+	}
+	
+
+	.section-title{
+		margin-bottom: 4rem;
+	}
+
+	/*------------------------------------------------------------
+	404
+	-------------------------------------------------------------- */
+	.error-404{
+	    .search-form{
+	        width: 100%;
+	    }
+	}
+
+}

@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (C) 2014-2020 ServMask Inc.
+ * Copyright (C) 2014-2025 ServMask Inc.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,6 +14,8 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Attribution: This code is part of the All-in-One WP Migration plugin, developed by
  *
  * ███████╗███████╗██████╗ ██╗   ██╗███╗   ███╗ █████╗ ███████╗██╗  ██╗
  * ██╔════╝██╔════╝██╔══██╗██║   ██║████╗ ████║██╔══██╗██╔════╝██║ ██╔╝
@@ -34,20 +36,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<div class="ai1wm-holder">
 				<h1>
 					<i class="ai1wm-icon-export"></i>
-					<?php _e( 'Export Site', AI1WM_PLUGIN_NAME ); ?>
+					<?php esc_html_e( 'Export Site', 'all-in-one-wp-migration' ); ?>
 				</h1>
 
 				<?php if ( is_readable( AI1WM_STORAGE_PATH ) && is_writable( AI1WM_STORAGE_PATH ) ) : ?>
 
 					<form action="" method="post" id="ai1wm-export-form" class="ai1wm-clear">
 
-						<?php include AI1WM_TEMPLATES_PATH . '/export/find-replace.php'; ?>
+						<?php require_once AI1WM_TEMPLATES_PATH . '/export/find-replace.php'; ?>
 
 						<?php do_action( 'ai1wm_export_left_options' ); ?>
 
-						<?php include AI1WM_TEMPLATES_PATH . '/export/advanced-settings.php'; ?>
+						<?php require_once AI1WM_TEMPLATES_PATH . '/export/advanced-settings.php'; ?>
 
-						<?php include AI1WM_TEMPLATES_PATH . '/export/export-buttons.php'; ?>
+						<?php require_once AI1WM_TEMPLATES_PATH . '/export/export-buttons.php'; ?>
 
 						<input type="hidden" name="ai1wm_manual_export" value="1" />
 
@@ -57,25 +59,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 				<?php else : ?>
 
-					<?php include AI1WM_TEMPLATES_PATH . '/export/export-permissions.php'; ?>
+					<?php require_once AI1WM_TEMPLATES_PATH . '/export/export-permissions.php'; ?>
 
 				<?php endif; ?>
 			</div>
 		</div>
-		<div class="ai1wm-right">
-			<div class="ai1wm-sidebar">
-				<div class="ai1wm-segment">
 
-					<?php if ( ! AI1WM_DEBUG ) : ?>
-						<?php include AI1WM_TEMPLATES_PATH . '/common/share-buttons.php'; ?>
-					<?php endif; ?>
+		<?php require_once AI1WM_TEMPLATES_PATH . '/common/sidebar-right.php'; ?>
 
-					<h2><?php _e( 'Leave Feedback', AI1WM_PLUGIN_NAME ); ?></h2>
-
-					<?php include AI1WM_TEMPLATES_PATH . '/common/leave-feedback.php'; ?>
-
-				</div>
-			</div>
-		</div>
 	</div>
 </div>

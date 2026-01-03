@@ -1,0 +1,1 @@
+[2026-01-03 07:24:15] php_system.INFO: E_NOTICE: array (   'type' => 8,   'message' => 'Trying to access array offset on value of type bool',   'file' => '/var/www/html/wp-content/plugins/food-and-drink-menu/includes/class-settings.php',   'line' => 181, ) [] []

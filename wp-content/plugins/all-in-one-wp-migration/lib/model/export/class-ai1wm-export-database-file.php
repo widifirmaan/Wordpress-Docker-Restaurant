@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (C) 2014-2020 ServMask Inc.
+ * Copyright (C) 2014-2025 ServMask Inc.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,6 +14,8 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Attribution: This code is part of the All-in-One WP Migration plugin, developed by
  *
  * ███████╗███████╗██████╗ ██╗   ██╗███╗   ███╗ █████╗ ███████╗██╗  ██╗
  * ██╔════╝██╔════╝██╔══██╗██║   ██║████╗ ████║██╔══██╗██╔════╝██║ ██╔╝
@@ -63,7 +65,8 @@ class Ai1wm_Export_Database_File {
 		$progress = (int) min( ( $database_bytes_offset / $total_database_size ) * 100, 100 );
 
 		// Set progress
-		Ai1wm_Status::info( sprintf( __( 'Archiving database...<br />%d%% complete', AI1WM_PLUGIN_NAME ), $progress ) );
+		/* translators: Progress. */
+		Ai1wm_Status::info( sprintf( __( 'Archiving database...<br />%d%% complete', 'all-in-one-wp-migration' ), $progress ) );
 
 		// Open the archive file for writing
 		$archive = new Ai1wm_Compressor( ai1wm_archive_path( $params ) );
@@ -75,7 +78,7 @@ class Ai1wm_Export_Database_File {
 		if ( $archive->add_file( ai1wm_database_path( $params ), AI1WM_DATABASE_NAME, $database_bytes_written, $database_bytes_offset ) ) {
 
 			// Set progress
-			Ai1wm_Status::info( __( 'Done archiving database.', AI1WM_PLUGIN_NAME ) );
+			Ai1wm_Status::info( __( 'Database archived.', 'all-in-one-wp-migration' ) );
 
 			// Unset archive bytes offset
 			unset( $params['archive_bytes_offset'] );
@@ -98,7 +101,8 @@ class Ai1wm_Export_Database_File {
 			$progress = (int) min( ( $database_bytes_offset / $total_database_size ) * 100, 100 );
 
 			// Set progress
-			Ai1wm_Status::info( sprintf( __( 'Archiving database...<br />%d%% complete', AI1WM_PLUGIN_NAME ), $progress ) );
+			/* translators: Progress. */
+			Ai1wm_Status::info( sprintf( __( 'Archiving database...<br />%d%% complete', 'all-in-one-wp-migration' ), $progress ) );
 
 			// Set archive bytes offset
 			$params['archive_bytes_offset'] = $archive_bytes_offset;

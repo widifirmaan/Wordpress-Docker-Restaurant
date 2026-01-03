@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (C) 2014-2020 ServMask Inc.
+ * Copyright (C) 2014-2025 ServMask Inc.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -15,6 +15,8 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
+ * Attribution: This code is part of the All-in-One WP Migration plugin, developed by
+ *
  * ███████╗███████╗██████╗ ██╗   ██╗███╗   ███╗ █████╗ ███████╗██╗  ██╗
  * ██╔════╝██╔════╝██╔══██╗██║   ██║████╗ ████║██╔══██╗██╔════╝██║ ██╔╝
  * ███████╗█████╗  ██████╔╝██║   ██║██╔████╔██║███████║███████╗█████╔╝
@@ -28,6 +30,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 class Ai1wm_Database_Mysqli extends Ai1wm_Database {
+
+	/**
+	 * Check whether table has auto increment attribute
+	 *
+	 * @param  string  $table_name Table name
+	 * @return boolean
+	 */
+	public function has_auto_increment( $table_name ) {
+		return stripos( $this->get_create_table( $table_name ), 'AUTO_INCREMENT' ) !== false;
+	}
 
 	/**
 	 * Run MySQL query
@@ -51,23 +63,24 @@ class Ai1wm_Database_Mysqli extends Ai1wm_Database {
 			// MySQL server has gone away, try to reconnect
 			if ( empty( $this->wpdb->dbh ) || 2006 === $mysqli_errno ) {
 				if ( ! $this->wpdb->check_connection( false ) ) {
-					throw new Ai1wm_Database_Exception( __( 'Error reconnecting to the database. <a href="https://help.servmask.com/knowledgebase/mysql-error-reconnecting/" target="_blank">Technical details</a>', AI1WM_PLUGIN_NAME ), 503 );
+					throw new Ai1wm_Database_Exception( __( 'Error reconnecting to the database. <a href="https://help.servmask.com/knowledgebase/mysql-error-reconnecting/" target="_blank">Technical details</a>', 'all-in-one-wp-migration' ), 503 );
 				}
 
 				mysqli_real_query( $this->wpdb->dbh, $input );
 			}
 		}
 
-		// Copy results from the internal mysqlnd buffer into the PHP variables fetched
-		if ( defined( 'MYSQLI_STORE_RESULT_COPY_DATA' ) ) {
-			return mysqli_store_result( $this->wpdb->dbh, MYSQLI_STORE_RESULT_COPY_DATA );
+		// The parameter $mode has had no effect as of PHP 8.1.0.
+		if ( ( PHP_MAJOR_VERSION >= 8 && PHP_MINOR_VERSION >= 1 ) || ! defined( 'MYSQLI_STORE_RESULT_COPY_DATA' ) ) {
+			return mysqli_store_result( $this->wpdb->dbh );
 		}
 
-		return mysqli_store_result( $this->wpdb->dbh );
+		// Copy results from the internal mysqlnd buffer into the PHP variables fetched
+		return mysqli_store_result( $this->wpdb->dbh, MYSQLI_STORE_RESULT_COPY_DATA );
 	}
 
 	/**
-	 * Escape string input for mysql query
+	 * Escape string input for MySQL query
 	 *
 	 * @param  string $input String to escape
 	 * @return string
@@ -95,51 +108,67 @@ class Ai1wm_Database_Mysqli extends Ai1wm_Database {
 	}
 
 	/**
-	 * Return server version
+	 * Return server info
 	 *
 	 * @return string
 	 */
-	public function version() {
+	public function server_info() {
 		return mysqli_get_server_info( $this->wpdb->dbh );
 	}
 
 	/**
 	 * Return the result from MySQL query as associative array
 	 *
-	 * @param  resource $result MySQL resource
+	 * @param  mixed $result MySQL resource
 	 * @return array
 	 */
-	public function fetch_assoc( $result ) {
+	public function fetch_assoc( &$result ) {
+		if ( $result === false ) {
+			return false;
+		}
+
 		return mysqli_fetch_assoc( $result );
 	}
 
 	/**
 	 * Return the result from MySQL query as row
 	 *
-	 * @param  resource $result MySQL resource
+	 * @param  mixed $result MySQL resource
 	 * @return array
 	 */
-	public function fetch_row( $result ) {
+	public function fetch_row( &$result ) {
+		if ( $result === false ) {
+			return false;
+		}
+
 		return mysqli_fetch_row( $result );
 	}
 
 	/**
 	 * Return the number for rows from MySQL results
 	 *
-	 * @param  resource $result MySQL resource
+	 * @param  mixed $result MySQL resource
 	 * @return integer
 	 */
-	public function num_rows( $result ) {
+	public function num_rows( &$result ) {
+		if ( $result === false ) {
+			return 0;
+		}
+
 		return mysqli_num_rows( $result );
 	}
 
 	/**
 	 * Free MySQL result memory
 	 *
-	 * @param  resource $result MySQL resource
+	 * @param  mixed $result MySQL resource
 	 * @return boolean
 	 */
-	public function free_result( $result ) {
+	public function free_result( &$result ) {
+		if ( $result === false ) {
+			return true;
+		}
+
 		return mysqli_free_result( $result );
 	}
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (C) 2014-2020 ServMask Inc.
+ * Copyright (C) 2014-2025 ServMask Inc.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,6 +14,8 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Attribution: This code is part of the All-in-One WP Migration plugin, developed by
  *
  * ███████╗███████╗██████╗ ██╗   ██╗███╗   ███╗ █████╗ ███████╗██╗  ██╗
  * ██╔════╝██╔════╝██╔══██╗██║   ██║████╗ ████║██╔══██╗██╔════╝██║ ██╔╝
@@ -29,22 +31,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class Ai1wm_Import_Options {
 
-	public static function execute( $params, Ai1wm_Database $mysql = null ) {
-		global $wpdb;
-
+	public static function execute( $params ) {
 		// Set progress
-		Ai1wm_Status::info( __( 'Preparing options...', AI1WM_PLUGIN_NAME ) );
+		Ai1wm_Status::info( __( 'Preparing WordPress options...', 'all-in-one-wp-migration' ) );
 
 		// Get database client
-		if ( is_null( $mysql ) ) {
-			if ( empty( $wpdb->use_mysqli ) ) {
-				$mysql = new Ai1wm_Database_Mysql( $wpdb );
-			} else {
-				$mysql = new Ai1wm_Database_Mysqli( $wpdb );
-			}
-		}
+		$db_client = Ai1wm_Database_Utility::create_client();
 
-		$tables = $mysql->get_tables();
+		$tables = $db_client->get_tables();
 
 		// Get base prefix
 		$base_prefix = ai1wm_table_prefix();
@@ -56,8 +50,8 @@ class Ai1wm_Import_Options {
 		if ( in_array( "{$mainsite_prefix}sitemeta", $tables ) ) {
 
 			// Get fs_accounts option value (Freemius)
-			$result = $mysql->query( "SELECT meta_value FROM `{$mainsite_prefix}sitemeta` WHERE meta_key = 'fs_accounts'" );
-			if ( ( $row = $mysql->fetch_assoc( $result ) ) ) {
+			$result = $db_client->query( "SELECT meta_value FROM `{$mainsite_prefix}sitemeta` WHERE meta_key = 'fs_accounts'" );
+			if ( ( $row = $db_client->fetch_assoc( $result ) ) ) {
 				$fs_accounts = get_option( 'fs_accounts', array() );
 				$meta_value  = maybe_unserialize( $row['meta_value'] );
 
@@ -78,7 +72,7 @@ class Ai1wm_Import_Options {
 		}
 
 		// Set progress
-		Ai1wm_Status::info( __( 'Done preparing options.', AI1WM_PLUGIN_NAME ) );
+		Ai1wm_Status::info( __( 'WordPress options prepared.', 'all-in-one-wp-migration' ) );
 
 		return $params;
 	}

@@ -1,0 +1,21 @@
+.fdm-menu-sidebar-div {
+  display: none !important;
+}
+
+.fdm-menu-classic.fdm-menu-sidebar-1,
+.fdm-menu-refined.fdm-menu-sidebar-1,
+.fdm-menu-image.fdm-menu-sidebar-1 {
+  width: 100% !important;
+}
+
+.fdm-item-image {
+  max-width: none !important;
+}
+
+.fdm-add-to-cart-button {
+  display: none !important;
+}
+
+.fdm-filtering {
+  margin-bottom: 32px;
+}

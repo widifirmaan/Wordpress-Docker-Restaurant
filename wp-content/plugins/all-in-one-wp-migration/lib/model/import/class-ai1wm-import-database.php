@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (C) 2014-2020 ServMask Inc.
+ * Copyright (C) 2014-2025 ServMask Inc.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,6 +14,8 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Attribution: This code is part of the All-in-One WP Migration plugin, developed by
  *
  * ███████╗███████╗██████╗ ██╗   ██╗███╗   ███╗ █████╗ ███████╗██╗  ██╗
  * ██╔════╝██╔════╝██╔══██╗██║   ██║████╗ ████║██╔══██╗██╔════╝██║ ██╔╝
@@ -29,7 +31,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class Ai1wm_Import_Database {
 
-	public static function execute( $params, Ai1wm_Database $mysql = null ) {
+	public static function execute( $params ) {
 		global $wpdb;
 
 		// Skip database import
@@ -75,7 +77,8 @@ class Ai1wm_Import_Database {
 		$progress = (int) ( ( $query_offset / $total_queries_size ) * 100 );
 
 		// Set progress
-		Ai1wm_Status::info( sprintf( __( 'Restoring database...<br />%d%% complete', AI1WM_PLUGIN_NAME ), $progress ) );
+		/* translators: Progress. */
+		Ai1wm_Status::info( sprintf( __( 'Restoring database...<br />%d%% complete', 'all-in-one-wp-migration' ), $progress ) );
 
 		$old_replace_values = $old_replace_raw_values = array();
 		$new_replace_values = $new_replace_raw_values = array();
@@ -216,8 +219,8 @@ class Ai1wm_Import_Database {
 					$new_domain = parse_url( $blog['New']['SiteURL'], PHP_URL_HOST );
 
 					// Get path
-					$old_path = parse_url( $url, PHP_URL_PATH );
-					$new_path = parse_url( $blog['New']['SiteURL'], PHP_URL_PATH );
+					$old_path = (string) parse_url( $url, PHP_URL_PATH );
+					$new_path = (string) parse_url( $blog['New']['SiteURL'], PHP_URL_PATH );
 
 					// Get scheme
 					$new_scheme = parse_url( $blog['New']['SiteURL'], PHP_URL_SCHEME );
@@ -342,8 +345,8 @@ class Ai1wm_Import_Database {
 					$new_domain = parse_url( $blog['New']['HomeURL'], PHP_URL_HOST );
 
 					// Get path
-					$old_path = parse_url( $url, PHP_URL_PATH );
-					$new_path = parse_url( $blog['New']['HomeURL'], PHP_URL_PATH );
+					$old_path = (string) parse_url( $url, PHP_URL_PATH );
+					$new_path = (string) parse_url( $blog['New']['HomeURL'], PHP_URL_PATH );
 
 					// Get scheme
 					$new_scheme = parse_url( $blog['New']['HomeURL'], PHP_URL_SCHEME );
@@ -457,8 +460,8 @@ class Ai1wm_Import_Database {
 				foreach ( array( $uploads_url, $uploads_url_www_inversion ) as $url ) {
 
 					// Get path
-					$old_path = parse_url( $url, PHP_URL_PATH );
-					$new_path = parse_url( $blog['New']['WordPress']['UploadsURL'], PHP_URL_PATH );
+					$old_path = (string) parse_url( $url, PHP_URL_PATH );
+					$new_path = (string) parse_url( $blog['New']['WordPress']['UploadsURL'], PHP_URL_PATH );
 
 					// Get scheme
 					$new_scheme = parse_url( $blog['New']['WordPress']['UploadsURL'], PHP_URL_SCHEME );
@@ -570,8 +573,8 @@ class Ai1wm_Import_Database {
 				$new_domain = parse_url( site_url(), PHP_URL_HOST );
 
 				// Get path
-				$old_path = parse_url( $url, PHP_URL_PATH );
-				$new_path = parse_url( site_url(), PHP_URL_PATH );
+				$old_path = (string) parse_url( $url, PHP_URL_PATH );
+				$new_path = (string) parse_url( site_url(), PHP_URL_PATH );
 
 				// Get scheme
 				$new_scheme = parse_url( site_url(), PHP_URL_SCHEME );
@@ -668,8 +671,8 @@ class Ai1wm_Import_Database {
 				$new_domain = parse_url( home_url(), PHP_URL_HOST );
 
 				// Get path
-				$old_path = parse_url( $url, PHP_URL_PATH );
-				$new_path = parse_url( home_url(), PHP_URL_PATH );
+				$old_path = (string) parse_url( $url, PHP_URL_PATH );
+				$new_path = (string) parse_url( home_url(), PHP_URL_PATH );
 
 				// Get scheme
 				$new_scheme = parse_url( home_url(), PHP_URL_SCHEME );
@@ -755,8 +758,8 @@ class Ai1wm_Import_Database {
 			foreach ( array( $uploads_url, $uploads_url_www_inversion ) as $url ) {
 
 				// Get path
-				$old_path = parse_url( $url, PHP_URL_PATH );
-				$new_path = parse_url( ai1wm_get_uploads_url(), PHP_URL_PATH );
+				$old_path = (string) parse_url( $url, PHP_URL_PATH );
+				$new_path = (string) parse_url( ai1wm_get_uploads_url(), PHP_URL_PATH );
 
 				// Get scheme
 				$new_scheme = parse_url( ai1wm_get_uploads_url(), PHP_URL_SCHEME );
@@ -808,6 +811,34 @@ class Ai1wm_Import_Database {
 						$new_replace_values[] = addcslashes( ai1wm_url_scheme( ai1wm_get_uploads_url(), $new_schemes[ $i ] ), '/' );
 					}
 				}
+			}
+		}
+
+		// Get WordPress Absolute Path
+		if ( isset( $config['WordPress']['Absolute'] ) && ( $absolute_path = $config['WordPress']['Absolute'] ) ) {
+
+			// Add plain WordPress Absolute
+			if ( ! in_array( $absolute_path, $old_replace_values ) ) {
+				$old_replace_values[] = $absolute_path;
+				$new_replace_values[] = ABSPATH;
+			}
+
+			// Add URL encoded WordPress Absolute
+			if ( ! in_array( urlencode( $absolute_path ), $old_replace_values ) ) {
+				$old_replace_values[] = urlencode( $absolute_path );
+				$new_replace_values[] = urlencode( ABSPATH );
+			}
+
+			// Add URL raw encoded WordPress Absolute
+			if ( ! in_array( rawurlencode( $absolute_path ), $old_replace_values ) ) {
+				$old_replace_values[] = rawurlencode( $absolute_path );
+				$new_replace_values[] = rawurlencode( ABSPATH );
+			}
+
+			// Add JSON escaped WordPress Absolute
+			if ( ! in_array( addcslashes( $absolute_path, '/' ), $old_replace_values ) ) {
+				$old_replace_values[] = addcslashes( $absolute_path, '/' );
+				$new_replace_values[] = addcslashes( ABSPATH, '/' );
 			}
 		}
 
@@ -886,6 +917,9 @@ class Ai1wm_Import_Database {
 		// Get HTTP password
 		$auth_password = get_option( AI1WM_AUTH_PASSWORD );
 
+		// Get auth header
+		$auth_header = get_option( AI1WM_AUTH_HEADER );
+
 		// Get Uploads Path
 		$uploads_path = get_option( AI1WM_UPLOADS_PATH );
 
@@ -944,45 +978,42 @@ class Ai1wm_Import_Database {
 		$new_table_prefixes[] = ai1wm_table_prefix();
 
 		// Get database client
-		if ( is_null( $mysql ) ) {
-			if ( empty( $wpdb->use_mysqli ) ) {
-				$mysql = new Ai1wm_Database_Mysql( $wpdb );
-			} else {
-				$mysql = new Ai1wm_Database_Mysqli( $wpdb );
-			}
-		}
+		$db_client = Ai1wm_Database_Utility::create_client();
 
 		// Set database options
-		$mysql->set_old_table_prefixes( $old_table_prefixes )
+		$db_client->set_old_table_prefixes( $old_table_prefixes )
 			->set_new_table_prefixes( $new_table_prefixes )
 			->set_old_replace_values( $old_replace_values )
 			->set_new_replace_values( $new_replace_values )
 			->set_old_replace_raw_values( $old_replace_raw_values )
 			->set_new_replace_raw_values( $new_replace_raw_values );
 
-		// Set atomic tables (do not stop the current request for all listed tables if timeout has been exceeded)
-		$mysql->set_atomic_tables( array( ai1wm_table_prefix() . 'options' ) );
+		// Set atomic tables (do not stop current request for all listed tables if timeout has been exceeded)
+		$db_client->set_atomic_tables( array( ai1wm_table_prefix() . 'options' ) );
+
+		// Set empty tables (do not populate current data for all listed tables)
+		$db_client->set_empty_tables( array( ai1wm_table_prefix() . 'eum_logs' ) );
 
 		// Set Visual Composer
-		$mysql->set_visual_composer( ai1wm_validate_plugin_basename( 'js_composer/js_composer.php' ) );
+		$db_client->set_visual_composer( ai1wm_validate_plugin_basename( 'js_composer/js_composer.php' ) );
 
 		// Set Oxygen Builder
-		$mysql->set_oxygen_builder( ai1wm_validate_plugin_basename( 'oxygen/functions.php' ) );
+		$db_client->set_oxygen_builder( ai1wm_validate_plugin_basename( 'oxygen/functions.php' ) );
 
 		// Set Optimize Press
-		$mysql->set_optimize_press( ai1wm_validate_plugin_basename( 'optimizePressPlugin/optimizepress.php' ) );
+		$db_client->set_optimize_press( ai1wm_validate_plugin_basename( 'optimizePressPlugin/optimizepress.php' ) );
 
 		// Set Avada Fusion Builder
-		$mysql->set_avada_fusion_builder( ai1wm_validate_plugin_basename( 'fusion-builder/fusion-builder.php' ) );
+		$db_client->set_avada_fusion_builder( ai1wm_validate_plugin_basename( 'fusion-builder/fusion-builder.php' ) );
 
 		// Set BeTheme Responsive
-		$mysql->set_betheme_responsive( ai1wm_validate_theme_basename( 'betheme/style.css' ) );
+		$db_client->set_betheme_responsive( ai1wm_validate_theme_basename( 'betheme/style.css' ) );
 
 		// Import database
-		if ( $mysql->import( ai1wm_database_path( $params ), $query_offset ) ) {
+		if ( $db_client->import( ai1wm_database_path( $params ), $query_offset ) ) {
 
 			// Set progress
-			Ai1wm_Status::info( __( 'Done restoring database.', AI1WM_PLUGIN_NAME ) );
+			Ai1wm_Status::info( __( 'Database restored.', 'all-in-one-wp-migration' ) );
 
 			// Unset query offset
 			unset( $params['query_offset'] );
@@ -1002,7 +1033,8 @@ class Ai1wm_Import_Database {
 			$progress = (int) ( ( $query_offset / $total_queries_size ) * 100 );
 
 			// Set progress
-			Ai1wm_Status::info( sprintf( __( 'Restoring database...<br />%d%% complete', AI1WM_PLUGIN_NAME ), $progress ) );
+			/* translators: Progress. */
+			Ai1wm_Status::info( sprintf( __( 'Restoring database...<br />%d%% complete', 'all-in-one-wp-migration' ), $progress ) );
 
 			// Set query offset
 			$params['query_offset'] = $query_offset;
@@ -1038,6 +1070,9 @@ class Ai1wm_Import_Database {
 		// Set the new HTTP password
 		update_option( AI1WM_AUTH_PASSWORD, $auth_password );
 
+		// Set the new auth header
+		update_option( AI1WM_AUTH_HEADER, $auth_header );
+
 		// Set the new Uploads Path
 		update_option( AI1WM_UPLOADS_PATH, $uploads_path );
 
@@ -1049,6 +1084,9 @@ class Ai1wm_Import_Database {
 
 		// Set the new sites links
 		update_option( AI1WM_SITES_LINKS, $sites_links );
+
+		// Set new backups path
+		update_option( AI1WM_BACKUPS_PATH_OPTION, AI1WM_BACKUPS_PATH );
 
 		return $params;
 	}

@@ -1,3 +1,125 @@
+= 7.75 =
+* Custom backups path on database import step
+
+= 7.74 =
+* Resolved an ongoing issue with the compatibility of the plugin with servers running Imunify360. The file "wp-content/plugins/all-in-one-wp-migration/functions.php" was being falsely flagged and deleted due to a detection error. This update includes small changes to the "functions.php" file to modify its checksum and prevent the false flag by Imunify360
+* Imunify360 has updated its signatures, which should prevent this issue from occurring on servers running the updated version. However, this plugin update serves as an additional measure to ensure that the issue is resolved for all users
+
+= 7.73 =
+* Better support for PHP 8.1
+
+= 7.72 =
+* Backups time based on selected WordPress time zone
+
+= 7.71 =
+* Removed the AI1WM_MAX_FILE_SIZE constant. This constant is no longer necessary
+
+= 7.70 =
+* Hooks that allow excluding specific database tables on export
+
+= 7.69 =
+* Improved support for custom backups location
+
+= 7.68 =
+* Better support for PHP 8.1
+
+= 7.67 =
+* Backups with a modified wp-content path cannot be downloaded
+
+= 7.66 =
+* Better support for WordPress v6.0.2
+
+= 7.65 =
+* Improved support for single-letter prefixed databases
+
+= 7.64 =
+* Better support for database binary fields
+
+= 7.63 =
+* CSRF and XSS issue in the plugin. Thank you, WPScan, for reporting it
+
+= 7.62 =
+* Password-protect and encrypt backups
+
+= 7.61 =
+* Issue with 7.60 release
+
+= 7.60 =
+* What's new page - easy way to get up to speed with the newest features
+* List of all the items in a backup file, then select and download archived files
+* Support for WordPress v6
+
+= 7.59 =
+* Fix a flaw in which the admin user has the ability to remove files other than backups
+
+= 7.58 =
+* Hide the backups count if there are no backups
+
+= 7.57 =
+* Improved UX on backups page
+
+= 7.56 =
+* Better support for PHP 8.1
+
+= 7.55 =
+* When importing or restoring across various PHP versions, the notice has been improved
+
+= 7.54 =
+* Improved YouTube and Twitter buttons
+
+= 7.53 =
+* Total number of backups in the plugin menu
+
+= 7.52 =
+* Out of disk space when exporting database.sql
+
+= 7.51 =
+* Link to YouTube Channel
+
+= 7.50 =
+* Improved reliability for scheduling events
+
+= 7.49 =
+* Better error handling when making HTTP requests
+* Store a list of site files as CSV
+* Filter to change the request method
+
+= 7.48 =
+* Support for BuddyPress plugin
+
+= 7.47 =
+* Improved database migration
+
+= 7.46 =
+* Support custom themes directory
+
+= 7.45 =
+* Support custom plugins directory
+
+= 7.44 =
+* Better support for MySQL <= 5.5
+* Support for BuddyBoss plugin
+* Report issue button
+
+= 7.43 =
+* Improved reliability
+
+= 7.42 =
+* Better support for WooCommerce plugin
+
+= 7.41 =
+* Improved free disk space checking
+* Improved backup validation
+* Improved path replacement on import
+* Horizontal scrollbar on MacOS (Backups Page)
+
+= 7.40 =
+* Better support for WP Cerber plugin
+* Backup page style issues on narrow screens
+
+= 7.39 =
+* Remove deprecated jQuery methods
+
 = 5.56 =
 * Fix an issue with WP_Hook class introcuded in WP 4.7
 

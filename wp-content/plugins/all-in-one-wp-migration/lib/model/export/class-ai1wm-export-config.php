@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (C) 2014-2020 ServMask Inc.
+ * Copyright (C) 2014-2025 ServMask Inc.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,6 +14,8 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Attribution: This code is part of the All-in-One WP Migration plugin, developed by
  *
  * ███████╗███████╗██████╗ ██╗   ██╗███╗   ███╗ █████╗ ███████╗██╗  ██╗
  * ██╔════╝██╔════╝██╔══██╗██║   ██║████╗ ████║██╔══██╗██╔════╝██║ ██╔╝
@@ -30,20 +32,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Ai1wm_Export_Config {
 
 	public static function execute( $params ) {
-		global $table_prefix, $wp_version, $wpdb;
+		global $table_prefix, $wp_version;
 
 		// Set progress
-		Ai1wm_Status::info( __( 'Preparing configuration file...', AI1WM_PLUGIN_NAME ) );
+		Ai1wm_Status::info( __( 'Preparing configuration...', 'all-in-one-wp-migration' ) );
 
 		// Get options
 		$options = wp_load_alloptions();
 
 		// Get database client
-		if ( empty( $wpdb->use_mysqli ) ) {
-			$mysql = new Ai1wm_Database_Mysql( $wpdb );
-		} else {
-			$mysql = new Ai1wm_Database_Mysqli( $wpdb );
-		}
+		$db_client = Ai1wm_Database_Utility::create_client();
 
 		$config = array();
 
@@ -132,10 +130,29 @@ class Ai1wm_Export_Config {
 		$config['Plugin'] = array( 'Version' => AI1WM_VERSION );
 
 		// Set WordPress version and content
-		$config['WordPress'] = array( 'Version' => $wp_version, 'Content' => WP_CONTENT_DIR, 'Plugins' => ai1wm_get_plugins_dir(), 'Themes' => ai1wm_get_themes_dirs(), 'Uploads' => ai1wm_get_uploads_dir(), 'UploadsURL' => ai1wm_get_uploads_url() );
+		$config['WordPress'] = array( 'Version' => $wp_version, 'Absolute' => ABSPATH, 'Content' => WP_CONTENT_DIR, 'Plugins' => ai1wm_get_plugins_dir(), 'Themes' => ai1wm_get_themes_dirs(), 'Uploads' => ai1wm_get_uploads_dir(), 'UploadsURL' => ai1wm_get_uploads_url() );
 
 		// Set database version
-		$config['Database'] = array( 'Version' => $mysql->version(), 'Charset' => DB_CHARSET, 'Collate' => DB_COLLATE, 'Prefix' => $table_prefix );
+		$config['Database'] = array(
+			'Version' => $db_client->server_info(),
+			'Charset' => defined( 'DB_CHARSET' ) ? DB_CHARSET : 'undefined',
+			'Collate' => defined( 'DB_COLLATE' ) ? DB_COLLATE : 'undefined',
+			'Prefix'  => $table_prefix,
+		);
+
+		// Exclude selected db tables
+		if ( isset( $params['options']['exclude_db_tables'], $params['excluded_db_tables'] ) ) {
+			if ( ( $excluded_db_tables = explode( ',', $params['excluded_db_tables'] ) ) ) {
+				$config['Database']['ExcludedTables'] = $excluded_db_tables;
+			}
+		}
+
+		// Include selected db tables
+		if ( isset( $params['options']['include_db_tables'], $params['included_db_tables'] ) ) {
+			if ( ( $included_db_tables = explode( ',', $params['included_db_tables'] ) ) ) {
+				$config['Database']['IncludedTables'] = $included_db_tables;
+			}
+		}
 
 		// Set PHP version
 		$config['PHP'] = array( 'Version' => PHP_VERSION, 'System' => PHP_OS, 'Integer' => PHP_INT_SIZE );
@@ -158,13 +175,18 @@ class Ai1wm_Export_Config {
 		// Set server info
 		$config['Server'] = array( '.htaccess' => base64_encode( ai1wm_get_htaccess() ), 'web.config' => base64_encode( ai1wm_get_webconfig() ) );
 
+		if ( isset( $params['options']['encrypt_backups'] ) ) {
+			$config['Encrypted']          = true;
+			$config['EncryptedSignature'] = base64_encode( ai1wm_encrypt_string( AI1WM_SIGN_TEXT, $params['options']['encrypt_password'] ) );
+		}
+
 		// Save package.json file
 		$handle = ai1wm_open( ai1wm_package_path( $params ), 'w' );
 		ai1wm_write( $handle, json_encode( $config ) );
 		ai1wm_close( $handle );
 
 		// Set progress
-		Ai1wm_Status::info( __( 'Done preparing configuration file.', AI1WM_PLUGIN_NAME ) );
+		Ai1wm_Status::info( __( 'Configuration prepared.', 'all-in-one-wp-migration' ) );
 
 		return $params;
 	}

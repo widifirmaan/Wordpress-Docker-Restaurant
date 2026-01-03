@@ -1,0 +1,1 @@
+<img class="fdm-related-item-image" src="<?php echo esc_attr( $related_item->image ); ?>" title="<?php echo esc_attr( $related_item->post_title ); ?>" alt="<?php echo esc_attr( $related_item->post_title ); ?>">

@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (C) 2014-2020 ServMask Inc.
+ * Copyright (C) 2014-2025 ServMask Inc.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -15,6 +15,8 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
+ * Attribution: This code is part of the All-in-One WP Migration plugin, developed by
+ *
  * ███████╗███████╗██████╗ ██╗   ██╗███╗   ███╗ █████╗ ███████╗██╗  ██╗
  * ██╔════╝██╔════╝██╔══██╗██║   ██║████╗ ████║██╔══██╗██╔════╝██║ ██╔╝
  * ███████╗█████╗  ██████╔╝██║   ██║██╔████╔██║███████║███████╗█████╔╝
@@ -28,7 +30,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 
-<a href="#" aria-label="<?php _e( 'To choose a file please go inside the link and click on the browse button.', AI1WM_PLUGIN_NAME ); ?>" id="ai1wm-import-file">
-	<?php _e( 'File', AI1WM_PLUGIN_NAME ); ?>
+<a href="#" aria-label="<?php esc_attr_e( 'To choose a file please go inside the link and click on the browse button.', 'all-in-one-wp-migration' ); ?>" id="ai1wm-import-file">
+	<?php esc_html_e( 'File', 'all-in-one-wp-migration' ); ?>
 	<input type="file" id="ai1wm-select-file" />
 </a>

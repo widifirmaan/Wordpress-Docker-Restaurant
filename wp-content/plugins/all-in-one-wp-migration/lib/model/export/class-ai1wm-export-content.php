@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (C) 2014-2020 ServMask Inc.
+ * Copyright (C) 2014-2025 ServMask Inc.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,6 +14,8 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Attribution: This code is part of the All-in-One WP Migration plugin, developed by
  *
  * ███████╗███████╗██████╗ ██╗   ██╗███╗   ███╗ █████╗ ███████╗██╗  ██╗
  * ██╔════╝██╔════╝██╔══██╗██║   ██║████╗ ████║██╔══██╗██╔════╝██║ ██╔╝
@@ -77,7 +79,8 @@ class Ai1wm_Export_Content {
 		$progress = (int) min( ( $processed_files_size / $total_content_files_size ) * 100, 100 );
 
 		// Set progress
-		Ai1wm_Status::info( sprintf( __( 'Archiving %d content files...<br />%d%% complete', AI1WM_PLUGIN_NAME ), $total_content_files_count, $progress ) );
+		/* translators: 1: Number of files, 2: Progress. */
+		Ai1wm_Status::info( sprintf( __( 'Archiving %1$d content files...<br />%2$d%% complete', 'all-in-one-wp-migration' ), $total_content_files_count, $progress ) );
 
 		// Flag to hold if file data has been processed
 		$completed = true;
@@ -98,7 +101,7 @@ class Ai1wm_Export_Content {
 			$archive->set_file_pointer( $archive_bytes_offset );
 
 			// Loop over files
-			while ( list( $file_abspath, $file_relpath, $file_size, $file_mtime ) = fgetcsv( $content_list ) ) {
+			while ( list( $file_abspath, $file_relpath, $file_size, $file_mtime ) = ai1wm_getcsv( $content_list ) ) {
 				$file_bytes_written = 0;
 
 				// Add file to archive
@@ -116,7 +119,8 @@ class Ai1wm_Export_Content {
 				$progress = (int) min( ( $processed_files_size / $total_content_files_size ) * 100, 100 );
 
 				// Set progress
-				Ai1wm_Status::info( sprintf( __( 'Archiving %d content files...<br />%d%% complete', AI1WM_PLUGIN_NAME ), $total_content_files_count, $progress ) );
+				/* translators: 1: Number of files, 2: Progress. */
+				Ai1wm_Status::info( sprintf( __( 'Archiving %1$d content files...<br />%2$d%% complete', 'all-in-one-wp-migration' ), $total_content_files_count, $progress ) );
 
 				// More than 10 seconds have passed, break and do another request
 				if ( ( $timeout = apply_filters( 'ai1wm_completed_timeout', 10 ) ) ) {

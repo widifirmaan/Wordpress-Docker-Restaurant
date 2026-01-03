@@ -1,0 +1,86 @@
+.sap-infinite-table-editor-value {
+	cursor: pointer;
+}
+.sap-infinite-table-editor-save {
+	cursor: pointer;
+}
+
+/***********************/
+/**** MESSAGE MODAL ****/
+/***********************/
+.sap-infinite-table-editor-container,
+.sap-infinite-table-editor-container * {
+	box-sizing: border-box;
+}
+.sap-infinite-table-editor-container {
+	position: fixed;
+	z-index: 9999;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background: rgba(0,0,0,0.8);
+}
+.sap-infinite-table-editor-container-inside {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	background-color: #fff;
+	width: 80%;
+	max-width: 800px;
+	max-height: 80vh;
+	overflow: hidden;
+	padding: 32px 32px 20px;
+	border-radius: 14px;
+}
+.sap-infinite-table-editor-container-inside-scroll {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	background-color: #fff;
+	width: 100%;
+	height: 100%;
+	overflow-y: auto;
+}
+
+.sap-infinite-table-editor-container-inside-scroll .mce-edit-area iframe {
+	min-height: 35vh;
+}
+.sap-infinite-table-editor-buttons {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 20px;  
+}
+.sap-infinite-table-editor-cancel {
+	padding: 8px 18px;
+	background: #f3f3f3;
+	color: #000;
+	font-size: 13px;
+	font-weight: normal;
+	text-decoration: none;
+	border: none;
+	border-radius: 10px;
+	cursor: pointer;
+}
+.sap-infinite-table-editor-save {
+	padding: 8px 18px;
+	background: #1b335f;
+	color:  #fff;
+	font-size: 13px;
+	font-weight: normal;
+	text-decoration: none;
+	border: none;
+	border-radius: 10px;
+	cursor: pointer;
+	transition: background .35s;
+}
+.sap-infinite-table-editor-save:hover {
+	background: #375a9a;
+}
+
+.sap-hidden {
+	display: none;
+}

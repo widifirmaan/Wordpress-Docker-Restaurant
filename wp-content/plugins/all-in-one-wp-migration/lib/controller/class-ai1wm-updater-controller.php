@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (C) 2014-2020 ServMask Inc.
+ * Copyright (C) 2014-2025 ServMask Inc.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,6 +14,8 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Attribution: This code is part of the All-in-One WP Migration plugin, developed by
  *
  * ███████╗███████╗██████╗ ██╗   ██╗███╗   ███╗ █████╗ ███████╗██╗  ██╗
  * ██╔════╝██╔════╝██╔══██╗██║   ██║████╗ ████║██╔══██╗██╔════╝██║ ██╔╝
@@ -72,36 +74,6 @@ class Ai1wm_Updater_Controller {
 		// Get updater details
 		if ( isset( $updater[ $plugin_data['slug'] ]['update_message'] ) ) {
 			Ai1wm_Template::render( 'updater/update', array( 'message' => $updater[ $plugin_data['slug'] ]['update_message'] ) );
-		}
-	}
-
-	public static function updater( $params = array() ) {
-		if ( check_ajax_referer( 'ai1wm_updater', 'ai1wm_nonce' ) ) {
-			ai1wm_setup_environment();
-
-			// Set params
-			if ( empty( $params ) ) {
-				$params = stripslashes_deep( $_POST );
-			}
-
-			// Set uuid
-			$uuid = null;
-			if ( isset( $params['ai1wm_uuid'] ) ) {
-				$uuid = trim( $params['ai1wm_uuid'] );
-			}
-
-			// Set extension
-			$extension = null;
-			if ( isset( $params['ai1wm_extension'] ) ) {
-				$extension = trim( $params['ai1wm_extension'] );
-			}
-
-			$extensions = Ai1wm_Extensions::get();
-
-			// Verify whether extension exists
-			if ( isset( $extensions[ $extension ] ) ) {
-				update_option( $extensions[ $extension ]['key'], $uuid );
-			}
 		}
 	}
 }

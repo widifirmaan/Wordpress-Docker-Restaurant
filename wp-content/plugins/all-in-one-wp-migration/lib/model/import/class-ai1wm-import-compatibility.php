@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (C) 2014-2020 ServMask Inc.
+ * Copyright (C) 2014-2025 ServMask Inc.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,6 +14,8 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Attribution: This code is part of the All-in-One WP Migration plugin, developed by
  *
  * ███████╗███████╗██████╗ ██╗   ██╗███╗   ███╗ █████╗ ███████╗██╗  ██╗
  * ██╔════╝██╔════╝██╔══██╗██║   ██║████╗ ████║██╔══██╗██╔════╝██║ ██╔╝
@@ -30,9 +32,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Ai1wm_Import_Compatibility {
 
 	public static function execute( $params ) {
+		do_action( 'ai1wm_status_import_start', $params );
 
 		// Set progress
-		Ai1wm_Status::info( __( 'Checking extensions compatibility...', AI1WM_PLUGIN_NAME ) );
+		Ai1wm_Status::info( __( 'Checking for compatibility...', 'all-in-one-wp-migration' ) );
 
 		// Get messages
 		$messages = Ai1wm_Compatibility::get( $params );
@@ -43,6 +46,6 @@ class Ai1wm_Import_Compatibility {
 		}
 
 		// Error message
-		throw new Ai1wm_Compatibility_Exception( implode( $messages ) );
+		throw new Ai1wm_Compatibility_Exception( wp_kses( implode( $messages ), ai1wm_allowed_html_tags() ) );
 	}
 }

@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (C) 2014-2020 ServMask Inc.
+ * Copyright (C) 2014-2025 ServMask Inc.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,6 +14,8 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Attribution: This code is part of the All-in-One WP Migration plugin, developed by
  *
  * ███████╗███████╗██████╗ ██╗   ██╗███╗   ███╗ █████╗ ███████╗██╗  ██╗
  * ██╔════╝██╔════╝██╔══██╗██║   ██║████╗ ████║██╔══██╗██╔════╝██║ ██╔╝
@@ -83,19 +85,17 @@ class Ai1wm_Feedback_Controller {
 
 		$purchases = array();
 		foreach ( $extensions as $extension ) {
-			if ( ( $uuid = get_option( $extension['key'] ) ) ) {
-				$purchases[] = $uuid;
-			}
+			$purchases[] = $extension['key'];
 		}
 
 		try {
 			Ai1wm_Feedback::add( $type, $email, $message, $terms, implode( PHP_EOL, $purchases ) );
 		} catch ( Ai1wm_Feedback_Exception $e ) {
-			echo json_encode( array( 'errors' => array( $e->getMessage() ) ) );
+			ai1wm_json_response( array( 'errors' => array( $e->getMessage() ) ) );
 			exit;
 		}
 
-		echo json_encode( array( 'errors' => array() ) );
+		ai1wm_json_response( array( 'errors' => array() ) );
 		exit;
 	}
 }

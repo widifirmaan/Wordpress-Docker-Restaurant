@@ -1,0 +1,556 @@
+@use "sass:color";
+@use "sass:math";
+@import "../../css/wp-admin-colors";
+@import "../../css/tooltips";
+@import "../../customizables/assets/radio-button-bar";
+
+$cpeEdgeSpacing: 12px;
+$cpeTabBorderColor: #dcdcde;
+$cpeTabContentVerticalPadding: 10px;
+$cpeExpectedGutenbergLeftMargin: 24px;
+
+$cpeActorHorizontalPadding: 10px;
+$cpeActorVerticalPadding: 8px;
+$permissionSettingMinWidth: 140px;
+
+$allowTextColor: wpColor(green-60);
+$denyTextColor: wpColor(red-60);
+$lightAllowTextColor: $allowTextColor;
+$lightDenyTextColor: $denyTextColor;
+
+$lightestGray: #fafafa;
+
+$discouragedLinkColor: wpColor(gray-40);
+
+#ame-cpe-content-permissions {
+	.inside {
+		padding: 0;
+		margin-top: 0;
+	}
+}
+
+.ame-cpe-tab-nav {
+	$borderColor: $cpeTabBorderColor;
+	$activeBackgroundColor: white;
+	$tabHorizontalPadding: 14px;
+
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: row;
+	margin: 0;
+
+	padding-left: math.max(0, ($cpeEdgeSpacing - $tabHorizontalPadding));
+
+	border-bottom: 1px solid $borderColor;
+	//background: linear-gradient(0deg, $activeBackgroundColor, #f7f7f7);
+
+	li {
+		box-sizing: border-box;
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+		margin-bottom: -1px;
+	}
+
+	a {
+		display: inline-block;
+		box-sizing: border-box;
+		position: relative;
+
+		padding: 8px $tabHorizontalPadding;
+
+		border-bottom: 2px solid transparent;
+
+		transition: none;
+		text-decoration: none;
+
+		&:focus, &:active {
+			outline: none;
+			box-shadow: none;
+		}
+
+		&:not(:hover) {
+			color: #2c3338;
+		}
+	}
+
+	.current a {
+		color: #2c3338;
+		background: $activeBackgroundColor;
+
+		border-bottom-color: var(--wp-components-color-accent, var(--wp-admin-theme-color, #007cba));
+	}
+
+	.block-editor & {
+		padding-left: ($cpeExpectedGutenbergLeftMargin - $tabHorizontalPadding);
+	}
+}
+
+.ame-cpe-main-tab-container {
+	display: flex;
+	flex-grow: 1;
+}
+
+.ame-cpe-tab {
+	flex-grow: 1;
+	min-height: 100px;
+	padding: $cpeTabContentVerticalPadding $cpeEdgeSpacing;
+
+	.block-editor & {
+		padding-left: $cpeExpectedGutenbergLeftMargin;
+		padding-right: $cpeExpectedGutenbergLeftMargin;
+	}
+}
+
+.ame-cpe-advanced-tab {
+	display: flex;
+	flex-direction: row;
+	padding: 0;
+
+	.block-editor & {
+		padding: 0;
+	}
+}
+
+.ame-cpe-actor-nav-container {
+	flex-basis: 20%;
+	max-width: 500px;
+
+	border-right: 1px solid $cpeTabBorderColor;
+	background: $lightestGray;
+}
+
+.ame-cpe-actor-nav {
+	padding-top: $cpeEdgeSpacing / 2;
+}
+
+.ame-cpe-actor-nav-list {
+	margin: 0;
+	padding: 0;
+
+	$actorBorderColor: transparent;
+	$actorHoverBackground: #f0f0f0; //#E5F3FF;
+
+	li {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+
+		&:hover {
+			background: $actorHoverBackground;
+		}
+	}
+
+	li a {
+		display: flex;
+		flex-direction: row;
+		padding: 0 $cpeActorHorizontalPadding;
+
+		text-decoration: none;
+		box-shadow: none;
+
+		border-bottom: 1px solid $actorBorderColor;
+	}
+
+	li:first-child a {
+		border-top: 1px solid $actorBorderColor;
+	}
+
+	li.current {
+		background: #CCE8FF;
+	}
+
+	.current a {
+		color: #333;
+		font-weight: 600;
+		box-shadow: none;
+	}
+
+	.ame-cpe-actor-name {
+		padding: $cpeActorVerticalPadding 0;
+		margin-right: 1em;
+	}
+}
+
+.ame-cpe-actor-nav-actions {
+	margin-top: 18px;
+	padding: ($cpeEdgeSpacing - 2px) $cpeActorHorizontalPadding $cpeEdgeSpacing;
+	border-top: 1px solid $cpeTabBorderColor;
+
+	//background: #f6f7f7;
+}
+
+.row-actions.ame-cpe-actor-nav-actions {
+	position: unset;
+	left: 0;
+	float: none;
+}
+
+a.ame-cpe-action-not-applicable,
+.row-actions .trash a.ame-cpe-action-not-applicable {
+	color: $discouragedLinkColor;
+}
+
+//region Advanced actor permissions
+.ame-cpe-actor-settings-container {
+	flex-basis: 60%;
+	flex-grow: 1;
+	padding: $cpeActorVerticalPadding $cpeEdgeSpacing;
+}
+
+.ame-cpe-actor-settings {
+	$cellPadding: 2px;
+	$desiredRowSpacing: 14px; //Same as the default spacing between independent inputs in the "Menu Style" popup.
+
+	padding: 0;
+	margin: 0;
+	border: none;
+
+	td, th {
+		padding: $cellPadding;
+		padding-bottom: ($desiredRowSpacing - 2 * $cellPadding);
+	}
+
+	th {
+		text-align: left;
+		padding-right: 12px;
+		font-weight: 600;
+	}
+
+	//Improve vertical alignment of row labels and inputs. With the default WP styles, the label text
+	//doesn't quite align with the text in the select elements.
+	label, select {
+		vertical-align: baseline;
+	}
+}
+
+.ame-cpe-actor-action-setting {
+	display: flex;
+	flex-direction: row;
+	align-items: baseline;
+
+	.ame-cpe-tooltip-trigger {
+		margin-left: 10px;
+	}
+}
+
+.ame-cpe-actor-settings {
+	.ame-cpe-permission-options {
+		min-width: $permissionSettingMinWidth;
+	}
+
+	.ame-cpe-option-allow, .ame-cpe-option-deny {
+		font-weight: bold;
+	}
+
+	.ame-cpe-option-default {
+		font-weight: normal;
+	}
+
+	//For consistency, change the option colors but avoid overriding the default WP hover color.
+	//The ":not()" selector should be sufficiently well-supported now.
+
+	.ame-cpe-option-allow:not(:hover) {
+		color: $allowTextColor;
+	}
+
+	.ame-cpe-option-deny:not(:hover) {
+		color: $denyTextColor;
+	}
+
+	.ame-cpe-option-default:not(:hover) {
+		color: #333;
+	}
+
+	.ame-cpe-option-default {
+		&.ame-cpe-option-allow:not(:hover) {
+			color: $lightAllowTextColor;
+		}
+
+		&.ame-cpe-option-deny:not(:hover) {
+			color: $lightDenyTextColor;
+		}
+	}
+}
+
+ame-cpe-permission-options-bar,
+ame-cpe-permission-options-dropdown {
+	display: block;
+}
+//endregion
+
+//region Tooltips
+.ame-cpe-tooltip-trigger {
+	color: wpColor(gray-50);
+	display: inline-block;
+}
+//endregion
+
+//region Permissions radio button bar
+.ame-cpe-permission-bar {
+	.ame-cpe-rb-label {
+		font-weight: normal;
+		display: inline-block;
+		text-align: center;
+
+		//This hidden element takes up space to ensure that the label width doesn't change when
+		//font-weight changes to bold.
+		&::before {
+			font-weight: bold;
+
+			display: block;
+			content: attr(data-label);
+			height: 1px;
+			//overflow: hidden; //Affects layout for unclear reasons.
+			visibility: hidden;
+			margin-bottom: -1px;
+		}
+	}
+
+	.dashicons {
+		transition: none;
+	}
+
+	.ame-radio-bar-button {
+		position: relative;
+		z-index: 10;
+		user-select: none;
+
+		min-width: 6em;
+		justify-content: center;
+
+		border-color: wpColor(gray-30);
+		background-color: wpColor(gray-0);
+		--ame-rb-box-shadow-color: transparent;
+
+		color: wpColor(gray-70);
+
+		.dashicons {
+			//display: none;
+			margin-left: -0.2em;
+		}
+	}
+
+	.ame-cpe-option-default {
+		min-width: 9em;
+	}
+
+	input[type="radio"]:checked ~ .ame-radio-bar-button {
+		color: white;
+		z-index: 20;
+
+		.ame-cpe-rb-label {
+			font-weight: bold;
+		}
+	}
+
+	$barColors: (
+		"allow": $allowTextColor,
+		"deny": $denyTextColor
+	);
+
+	@each $option, $color in $barColors {
+		.ame-cpe-option-#{$option} {
+			input[type="radio"]:checked ~ .ame-radio-bar-button {
+				background-color: $color;
+				border-color: color.scale($color, $lightness: -10%);
+			}
+
+			&.ame-cpe-option-default {
+				input[type="radio"]:checked ~ .ame-radio-bar-button {
+					background-color: color.scale($color, $saturation: -50%, $lightness: 20%);
+				}
+			}
+		}
+	}
+}
+//endregion
+
+//region Mini-grid
+.ame-cpe-mini-grid {
+	$cellSize: 8px;
+	$allowColor: $allowTextColor;
+	$denyColor: $denyTextColor;
+
+	display: grid;
+
+	grid-template-rows: repeat(2, $cellSize);
+	grid-auto-columns: $cellSize;
+	grid-auto-flow: column;
+	gap: 2px;
+
+	margin-left: auto;
+	align-self: center;
+
+	//border: 1px solid #ccc;
+	border-radius: 2px;
+	padding: 2px;
+
+	.ame-cpe-cell-allow {
+		background: $allowColor;
+	}
+
+	.ame-cpe-cell-deny {
+		background: $denyColor;
+	}
+
+	.ame-cpe-cell-default.ame-cpe-cell-allow {
+		background: wpColor(green-20);
+	}
+
+	.ame-cpe-cell-default.ame-cpe-cell-deny {
+		background: wpColor(red-20);
+	}
+
+	.ame-cpe-cell-not-applicable {
+		background: transparent;
+		//border: 1px solid wpColor(gray-10);
+	}
+}
+
+.ame-cpe-mini-grid-item {
+	background: wpColor(gray-10);
+}
+
+//endregion
+
+//region Complex radio groups
+.ame-cpe-radio-option {
+	display: flex;
+	flex-direction: row;
+	gap: 3px;
+}
+
+.ame-cpe-radio-toggle-column {
+	flex-shrink: 0;
+}
+
+.ame-cpe-radio-content-column {
+	flex-grow: 1;
+	display: flex;
+	flex-direction: column;
+}
+
+//endregion
+
+//region Protection settings
+.ame-cpe-protection-tab {
+	.description {
+		font-style: italic;
+		//color: #666;
+	}
+
+	fieldset {
+		margin-bottom: 16px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+
+		legend {
+			font-weight: 600;
+			font-size: (14/13)*1em;
+
+			padding: 0;
+			margin-bottom: 8px;
+		}
+	}
+}
+
+.ame-cpe-protection-type {
+	margin-bottom: 12px;
+
+	padding: 4px 6px 8px;
+	border-radius: 4px;
+
+	border: 1px solid wpColor(gray-10);
+	background-color: $lightestGray;
+
+	&.ame-cpe-is-active-protection {
+		border-color: wpColor(blue-20);
+		background-color: wpColor(blue-0);
+	}
+}
+
+.ame-cpe-protection-type-settings {
+	display: flex;
+	flex-direction: column;
+
+	label {
+		margin-top: 8px;
+	}
+}
+
+.ame-cpe-replacement-text-info {
+	margin-top: 0;
+
+	label {
+		display: inline;
+		vertical-align: unset;
+	}
+}
+
+//endregion
+
+//region Basic tab
+#ame-cpe-basic-view-state {
+	min-width: $permissionSettingMinWidth;
+}
+
+.ame-cpe-basic-actor-container {
+	display: flex;
+	flex-direction: column;
+	margin-top: 1em;
+	max-width: 400px;
+}
+
+$basicRoleListMarginLeft: 10px;
+.ame-cpe-basic-actor-settings {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+
+	margin-left: $basicRoleListMarginLeft;
+
+	label {
+		line-height: (24/13);
+		padding-right: 20px; //Extra click area.
+	}
+}
+
+#ame-cpe-basic-actor-shortcuts {
+	margin-left: $basicRoleListMarginLeft;
+	margin-top: 10px;
+	color: wpColor(gray-60);
+
+	fieldset[disabled] & a {
+		color: $discouragedLinkColor;
+	}
+}
+
+//endregion
+
+//region About tab
+.ame-cpe-about-tab {
+	ul {
+		list-style: disc inside;
+		margin: 0;
+	}
+}
+//endregion
+
+#ame-cpe-enforcement-disabled-notice {
+	padding: 8px $cpeEdgeSpacing;
+	border: solid wpColor(yellow-40);
+	border-width: 1px 0;
+
+	background: wpColor(yellow-0);
+
+	p {
+		margin: 0;
+	}
+
+	.dashicons {
+		color: wpColor(yellow-60);
+	}
+}

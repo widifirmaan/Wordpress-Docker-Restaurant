@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (C) 2014-2020 ServMask Inc.
+ * Copyright (C) 2014-2025 ServMask Inc.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,6 +14,8 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Attribution: This code is part of the All-in-One WP Migration plugin, developed by
  *
  * ███████╗███████╗██████╗ ██╗   ██╗███╗   ███╗ █████╗ ███████╗██╗  ██╗
  * ██╔════╝██╔════╝██╔══██╗██║   ██║████╗ ████║██╔══██╗██╔════╝██║ ██╔╝
@@ -29,13 +31,37 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 
 <p class="max-upload-size">
-	<?php printf( __( 'Maximum upload file size: <strong>%s</strong>.', AI1WM_PLUGIN_NAME ), esc_html( ai1wm_size_format( wp_max_upload_size() ) ) ); ?>
+	<?php
+	echo wp_kses(
+		sprintf(
+			/* translators: Max upload file size */
+			__( 'Your host restricts uploads to <strong>%s</strong>.', 'all-in-one-wp-migration' ),
+			esc_html( ai1wm_size_format( wp_max_upload_size() ) )
+		),
+		ai1wm_allowed_html_tags()
+	);
+	?>
+
+	<?php
+	echo wp_kses(
+		sprintf(
+			/* translators: Link to Unlimited Extension */
+			__( 'Our <a href="%s" target="_blank">Unlimited Extension</a> bypasses this!', 'all-in-one-wp-migration' ),
+			'https://servmask.com/products/unlimited-extension?utm_source=below-drag-drop&utm_medium=plugin&utm_campaign=ai1wm'
+		),
+		ai1wm_allowed_html_tags()
+	);
+	?>
 </p>
 <p>
-	<a href="https://help.servmask.com/2018/10/27/how-to-increase-maximum-upload-file-size-in-wordpress/" target="_blank"><?php _e( 'How-to: Increase maximum upload file size', AI1WM_PLUGIN_NAME ); ?></a>
-	<?php _e( 'or', AI1WM_PLUGIN_NAME ); ?>
-	<a href="https://import.wp-migration.com" target="_blank" class="ai1wm-label">
-		<i class="ai1wm-icon-notification"></i>
-		<?php _e( 'Get unlimited', AI1WM_PLUGIN_NAME ); ?>
-	</a>
+	<?php
+	echo wp_kses(
+		sprintf(
+			/* translators: Link to how to article */
+			__( 'If you prefer a manual fix, follow our step-by-step guide on <a href="%s" target="_blank">raising your upload limit</a>.', 'all-in-one-wp-migration' ),
+			'https://help.servmask.com/2018/10/27/how-to-increase-maximum-upload-file-size-in-wordpress/'
+		),
+		ai1wm_allowed_html_tags()
+	);
+	?>
 </p>

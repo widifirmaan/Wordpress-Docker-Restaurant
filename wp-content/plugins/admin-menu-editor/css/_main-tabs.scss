@@ -1,0 +1,155 @@
+@import "ui-constants";
+
+/***************************************
+		Tabs on the settings page
+ ***************************************/
+
+.wrap.ws-ame-too-many-tabs .ws-ame-nav-tab-list {
+	&.nav-tab-wrapper {
+		border-bottom-color: transparent;
+	}
+
+	.nav-tab {
+		border-bottom: 1px solid #c3c4c7;
+		margin-bottom: 10px;
+		margin-top: 0;
+	}
+}
+
+/* Spacing between the page heading and the tab list.
+
+Normally, this is handled by .nav-tab styles, but WordPress changes the margins at smaller screen sizes
+and the tabs end up without a left margin. Let's put that margin on the heading instead and remove it
+from the first tab. */
+
+#ws_ame_editor_heading {
+	margin-right: 0.305em;
+}
+
+.ws-ame-nav-tab-list {
+	a.nav-tab:first-of-type {
+		margin-left: 0;
+	}
+}
+
+/* When in "too many tabs" mode, there's too much space between the bottom of the tab list and the rest
+of the page. I haven't found a good way to change the margins of just the last row, so here's a partial fix. */
+.ws-ame-too-many-tabs #ws_actor_selector {
+	margin-top: 0;
+}
+
+//region Condensed tabs
+
+/*
+"Condensed" tab style for when there are too many tabs.
+
+The current implementation doesn't actually take less space, but it reduces gaps and makes the tabs
+flow better due to fixed-step sizing. Tabs on different rows will sometimes align. Individual tabs
+don't get pushed around by "Screen Options" or other elements that might appear above the tabs (instead,
+the tabs will wrap to the next row).
+ */
+
+$tabBaseColWidth: 32px;
+$condensedTabGap: 5px;
+$condensedTabHorizontalPadding: 8px;
+$condensedTabBorderRadius: 0px;
+
+//A second, hidden heading that is part of the tab list and will visually replace the real heading
+//when there are too many tabs.
+//Putting the real <h1> heading in the tab list could break some WP behaviors, like the way it moves
+//notices below the heading.
+#ws_ame_tab_leader_heading {
+	display: none; //Starts out hidden, will be shown if/when the condensed view is enabled.
+	box-sizing: border-box;
+
+	font-size: 23px;
+	font-weight: 400;
+	align-self: center;
+	text-align: left;
+
+	//Fake borders to make column sizing classes work like they do for tabs.
+	border-style: solid;
+	border-color: transparent;
+	border-width: 0 1px;
+
+	margin-right: 0;
+	padding: 0;
+}
+
+.ws-ame-nav-tab-list {
+	--ame-tab-col-width: #{$tabBaseColWidth};
+	--ame-tab-cnd-horizontal-padding: #{$condensedTabHorizontalPadding};
+	--ame-tab-cnd-gap: #{$condensedTabGap};
+}
+
+//WP changes tab appearance at 600px, let's not interfere with that.
+@media screen and (min-width: 601px) {
+	.ws-ame-too-many-tabs.ame-condensed-tabs-enabled {
+		#ws_ame_editor_heading {
+			display: none;
+		}
+
+		#ws_ame_tab_leader_heading {
+			display: inline;
+		}
+
+		.ws-ame-nav-tab-list {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			gap: $condensedTabGap;
+
+			margin-bottom: $tabsToActorSelectorGap; //Same as the default top margin for the actor selector.
+
+			.nav-tab {
+				box-sizing: border-box;
+				text-align: center;
+				margin: 0;
+
+				border-top-left-radius: $condensedTabBorderRadius;
+				border-top-right-radius: $condensedTabBorderRadius;
+
+				padding-left: $condensedTabHorizontalPadding;
+				padding-right: $condensedTabHorizontalPadding;
+
+				z-index: 1;
+			}
+
+			.nav-tab-active {
+				z-index: 2;
+			}
+
+			.nav-tab:focus, .nav-tab:active {
+				z-index: 3;
+			}
+		}
+
+		//Generate sizes for the tabs.
+		@for $i from 1 through 12 {
+			.ame-nav-tab-col-#{$i} {
+				min-width: ($tabBaseColWidth * $i) + (($i - 1) * $condensedTabGap);
+			}
+		}
+	}
+}
+
+//endregion
+
+//region Spacing adjustments
+.ame-tab-list-bottom-margin-disabled {
+	&, &.ws-ame-too-many-tabs.ame-condensed-tabs-enabled {
+		.ws-ame-nav-tab-list {
+			margin-bottom: 0;
+		}
+	}
+
+	//Admin notices are typically shown below the tab list. When the tab list has no bottom margin,
+	//that usually means there's an element with a large top margin/padding (e.g. a sticky bar)
+	//immediately following it. When a notice is inserted between them, that creates an even larger
+	//gap. To fix that, let's reduce the bottom margin of notices in this case.
+	> .notice {
+		//Value somewhat arbitrary, chosen to visually match the "Admin Menu" tab.
+		margin-bottom: 9px;
+	}
+}
+//endregion

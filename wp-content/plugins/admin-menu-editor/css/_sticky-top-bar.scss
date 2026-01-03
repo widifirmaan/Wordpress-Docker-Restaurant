@@ -1,0 +1,79 @@
+@import "wp-admin-colors";
+@import "ui-constants";
+
+$ameStickyBarZIndex: 5;
+$ameStickyBarBaseTopPadding: $defaultActorSelectorTopMargin;
+$ameStickyBarBaseBottomPadding: $largeActorSelectorToUiGap - 1px; //-1 for the border.
+$ameStickyBarPinnedPadding: 16px;
+
+/*
+ * The minimum screen width at which the sticky bar will be sticky.
+ * The Admin Bar stops sticking to the top of the window at 600px. Let's do the same for our top bar.
+ */
+$ameStickyBarMinScreenWidth: 601px;
+
+.ame-sticky-top-bar {
+	padding-top: $ameStickyBarBaseTopPadding;
+	padding-bottom: $ameStickyBarBaseBottomPadding;
+	border-bottom: 1px solid transparent;
+	display: block;
+}
+
+@media screen and (min-width: $ameStickyBarMinScreenWidth) {
+	.ame-sticky-top-bar {
+		position: sticky;
+		//Stick below the admin bar.
+		top: calc(var(--wp-admin--admin-bar--height, 32px));
+		z-index: $ameStickyBarZIndex;
+
+		//To prevent sudden jumps when the bar becomes pinned, set the top padding to the pinned
+		//value early but compensate for it with a negative margin. This way it looks like the bar
+		//has the base top padding until it becomes pinned. It also gets pinned earlier, when the
+		//invisible top edge is reached.
+		padding-top: $ameStickyBarPinnedPadding;
+		margin-top: #{$ameStickyBarBaseTopPadding - $ameStickyBarPinnedPadding};
+		//However, this makes the bar partially overlap the elements above it, so we need to
+		//disable pointer events on the bar to stop it interfering with those elements.
+		pointer-events: none;
+
+		//Re-enable pointer events for children. Otherwise, they apparently inherit the disabled
+		//state.
+		> * {
+			pointer-events: auto;
+		}
+	}
+
+	.ame-sticky-top-bar.ame-is-pinned-top-bar {
+		background-color: wpColor(gray-0);
+		border-bottom: 1px solid wpColor(gray-10);
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+		pointer-events: auto;
+
+		//Like with the top padding, use a negative margin to prevent jumps when the bar
+		//becomes pinned and the bottom padding changes.
+		padding-bottom: $ameStickyBarPinnedPadding;
+		margin-bottom: #{$ameStickyBarBaseBottomPadding - $ameStickyBarPinnedPadding};
+	}
+
+	//When the bar is pinned, expand it horizontally to fill the content area.
+	.ame-is-pinned-top-bar {
+		margin-left: calc(-1 * var(--ame-sticky-bar-left-offset, 0));
+		padding-left: var(--ame-sticky-bar-left-offset, 0);
+
+		margin-right: calc(-1 * var(--ame-sticky-bar-right-offset, 0));
+		padding-right: var(--ame-sticky-bar-right-offset, 0);
+	}
+}
+
+.ame-sticky-top-bar-flex-content {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	align-items: center;
+}
+
+.ame-sticky-top-bar #ws_actor_selector {
+	//When inside the sticky bar, the top spacing is handled by the bar itself.
+	margin-top: 0;
+}

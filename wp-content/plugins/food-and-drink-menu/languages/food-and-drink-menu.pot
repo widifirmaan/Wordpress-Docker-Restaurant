@@ -1,0 +1,2176 @@
+# Copyright (C) 2018 Nate Wright
+# This file is distributed under the same license as the Food and Drink Menu package.
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Food and Drink Menu 1.6.2\n"
+"Report-Msgid-Bugs-To: https://themeofthecrop.com\n"
+"POT-Creation-Date: 2023-08-22 14:28-0400\n"
+"PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.3.2\n"
+"X-Poedit-KeywordsList: __;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;"
+"_nx_noop:1,2,3c;esc_attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;"
+"esc_html_x:1,2c\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-Basepath: ..\n"
+"X-Textdomain-Support: yes\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: assets/js/src/block-menu-item.js:9 includes/class-custom-post-types.php:179
+#: includes/patterns/menu-item.php:6 widgets/WidgetMenuItem.class.php:69
+msgid "Menu Item"
+msgstr ""
+
+#: assets/js/src/block-menu-item.js:33 assets/js/src/block-menu-item.js:47
+msgid "Select a Menu Item"
+msgstr ""
+
+#: assets/js/src/block-menu-section.js:9 includes/class-custom-post-types.php:141
+#: includes/class-custom-post-types.php:144
+#: includes/class-custom-post-types.php:149 includes/patterns/menu-section.php:6
+msgid "Menu Section"
+msgstr ""
+
+#: assets/js/src/block-menu-section.js:33 assets/js/src/block-menu-section.js:46
+msgid "Select a Menu Section"
+msgstr ""
+
+#: assets/js/src/block-menu.js:9 includes/class-custom-post-types.php:100
+#: includes/integrations/business-profile.php:23 includes/patterns/menu.php:6
+#: widgets/WidgetMenu.class.php:72
+msgid "Menu"
+msgstr ""
+
+#: assets/js/src/block-menu.js:33 assets/js/src/block-menu.js:46
+msgid "Select a Menu"
+msgstr ""
+
+#: fdm-templates/admin-order-form.php:20
+msgid "Customer Details"
+msgstr ""
+
+#: fdm-templates/admin-order-form.php:29
+msgid "Customer Name"
+msgstr ""
+
+#: fdm-templates/admin-order-form.php:45
+msgid "Customer Phone"
+msgstr ""
+
+#: fdm-templates/admin-order-form.php:61
+msgid "Customer Email"
+msgstr ""
+
+#: fdm-templates/admin-order-form.php:78
+msgid "Order Items"
+msgstr ""
+
+#: fdm-templates/admin-order-form.php:87 fdm-templates/admin-order-table-item.php:3
+msgid "Delete?"
+msgstr ""
+
+#: fdm-templates/admin-order-form.php:88
+msgid "Item"
+msgstr ""
+
+#: fdm-templates/admin-order-form.php:89 fdm-templates/admin-order-form.php:167
+#: views/View.class.php:323
+msgid "Quantity"
+msgstr ""
+
+#: fdm-templates/admin-order-form.php:90 food-and-drink-menu.php:509
+#: includes/class-custom-post-types.php:344
+#: includes/class-custom-post-types.php:454
+#: includes/class-custom-post-types.php:1273
+#: includes/class-installation-walkthrough.php:242 views/View.class.php:300
+msgid "Price"
+msgstr ""
+
+#: fdm-templates/admin-order-form.php:91
+msgid "Additional Info"
+msgstr ""
+
+#: fdm-templates/admin-order-form.php:106
+msgid "Add an item"
+msgstr ""
+
+#: fdm-templates/admin-order-form.php:117
+msgid "Back"
+msgstr ""
+
+#: fdm-templates/admin-order-form.php:161
+msgid "Item Details"
+msgstr ""
+
+#: fdm-templates/admin-order-form.php:179
+msgid "Options"
+msgstr ""
+
+#: fdm-templates/admin-order-form.php:189 includes/class-custom-post-types.php:1336
+#: lib/simple-admin-pages/classes/AdminPageSetting.InfiniteTable.class.php:199
+msgid "Cancel"
+msgstr ""
+
+#: fdm-templates/admin-order-form.php:195
+#: includes/class-installation-walkthrough.php:235
+msgid "Add Item"
+msgstr ""
+
+#: fdm-templates/admin-order-form.php:218
+msgid "Save Order"
+msgstr ""
+
+#: fdm-templates/admin-order-form.php:218
+msgid "Update Order"
+msgstr ""
+
+#: fdm-templates/admin-order-form.php:222 fdm-templates/admin-order-form.php:231
+msgid "Order Status"
+msgstr ""
+
+#: fdm-templates/admin-order-form.php:263
+msgid "Order ETA"
+msgstr ""
+
+#: fdm-templates/admin-order-form.php:281
+msgid "Order Total"
+msgstr ""
+
+#: fdm-templates/admin-order-form.php:297
+#: includes/WP_List_Table.OrdersTable.class.php:376
+msgid "Payment Amount"
+msgstr ""
+
+#: fdm-templates/admin-order-form.php:315
+msgid "Receipt ID"
+msgstr ""
+
+#: fdm-templates/admin-order-form.php:338
+#: includes/WP_List_Table.OrdersTable.class.php:372
+#: includes/class-custom-post-types.php:320
+#: includes/class-custom-post-types.php:563 includes/class-settings.php:618
+#: includes/class-settings.php:764 views/View.class.php:289
+msgid "Custom Fields"
+msgstr ""
+
+#: fdm-templates/content/related_items.php:27
+#: includes/class-custom-post-types.php:1322
+#: includes/class-custom-post-types.php:1553 views/View.Item.class.php:304
+msgctxt "Separator between multiple prices."
+msgid "/"
+msgstr ""
+
+#: food-and-drink-menu.php:222
+msgid "Apply Menu Styles"
+msgstr ""
+
+#: food-and-drink-menu.php:230
+msgid "Base Formatting Only"
+msgstr ""
+
+#: food-and-drink-menu.php:242
+msgid "Don't Load any CSS Styles"
+msgstr ""
+
+#: food-and-drink-menu.php:254
+msgid "Classic Style"
+msgstr ""
+
+#: food-and-drink-menu.php:267
+msgid "Refined"
+msgstr ""
+
+#: food-and-drink-menu.php:280
+msgid "Image Style"
+msgstr ""
+
+#: food-and-drink-menu.php:454
+msgid "MENU"
+msgstr ""
+
+#: food-and-drink-menu.php:455
+msgid "Dashboard"
+msgstr ""
+
+#: food-and-drink-menu.php:456 includes/WP_List_Table.OrdersTable.class.php:113
+#: includes/class-custom-post-types.php:235
+#: includes/class-custom-post-types.php:236
+msgid "Orders"
+msgstr ""
+
+#: food-and-drink-menu.php:457 includes/class-custom-post-types.php:99
+msgid "Menus"
+msgstr ""
+
+#: food-and-drink-menu.php:458 includes/class-custom-post-types.php:178
+msgid "Menu Items"
+msgstr ""
+
+#: food-and-drink-menu.php:459 includes/class-custom-post-types.php:1274
+#: includes/class-custom-post-types.php:1438 includes/class-dashboard.php:173
+msgid "Sections"
+msgstr ""
+
+#: food-and-drink-menu.php:460
+msgid "Item Icons"
+msgstr ""
+
+#: food-and-drink-menu.php:461
+msgid "Export"
+msgstr ""
+
+#: food-and-drink-menu.php:462
+msgid "Import"
+msgstr ""
+
+#: food-and-drink-menu.php:463 includes/class-settings.php:271
+#: includes/class-settings.php:272
+msgid "Settings"
+msgstr ""
+
+#: food-and-drink-menu.php:541
+msgid "Section Name"
+msgstr ""
+
+#: food-and-drink-menu.php:556
+msgid "Update Section Name"
+msgstr ""
+
+#: food-and-drink-menu.php:595
+msgid "Try Premium"
+msgstr ""
+
+#: food-and-drink-menu.php:598
+msgid "View the help documentation for Food and Drink Menu"
+msgstr ""
+
+#: food-and-drink-menu.php:598
+msgid "Help"
+msgstr ""
+
+#: food-and-drink-menu.php:703
+msgid ""
+"You're using the Five-Star Restaurant Menu premium version, but the premium "
+"helper plugin is not active."
+msgstr ""
+
+#: food-and-drink-menu.php:705
+#, php-format
+msgid ""
+"Please re-activate the helper plugin, or <a target='_blank' href='%s'>download "
+"and install it</a> if the plugin is no longer installed to ensure continued "
+"access to the premium features of the plugin."
+msgstr ""
+
+#: food-and-drink-menu.php:723 includes/class-custom-post-types.php:1511
+#: includes/class-helper.php:45
+#, php-format
+msgid "You have been logged out. Please %slogin again%s."
+msgstr ""
+
+#: includes/WP_List_Table.OrdersTable.class.php:112
+#: includes/class-custom-post-types.php:233
+#: includes/class-custom-post-types.php:234 includes/class-order-payments.php:269
+#: includes/class-order-payments.php:270
+msgid "Order"
+msgstr ""
+
+#: includes/WP_List_Table.OrdersTable.class.php:177
+#: includes/WP_List_Table.OrdersTable.class.php:179
+msgctxt ""
+"No date limit in a date range, eg 2014-* would mean any date from 2014 or after"
+msgid "*"
+msgstr ""
+
+#: includes/WP_List_Table.OrdersTable.class.php:178
+msgctxt "Separator between two dates in a date range"
+msgid "&mdash;"
+msgstr ""
+
+#: includes/WP_List_Table.OrdersTable.class.php:281
+msgid "All"
+msgstr ""
+
+#: includes/WP_List_Table.OrdersTable.class.php:289
+msgid "Trash"
+msgstr ""
+
+#: includes/WP_List_Table.OrdersTable.class.php:364
+msgid "ID"
+msgstr ""
+
+#: includes/WP_List_Table.OrdersTable.class.php:365
+msgid "Status"
+msgstr ""
+
+#: includes/WP_List_Table.OrdersTable.class.php:366
+#: includes/class-custom-post-types.php:1275
+#: includes/class-custom-post-types.php:1439 includes/class-dashboard.php:174
+msgid "Date"
+msgstr ""
+
+#: includes/WP_List_Table.OrdersTable.class.php:367
+#: includes/class-custom-post-types.php:612
+#: includes/class-installation-walkthrough.php:208
+#: includes/class-installation-walkthrough.php:240 views/View.class.php:328
+msgid "Name"
+msgstr ""
+
+#: includes/WP_List_Table.OrdersTable.class.php:368 views/View.class.php:329
+msgid "Email"
+msgstr ""
+
+#: includes/WP_List_Table.OrdersTable.class.php:369 views/View.class.php:330
+msgid "Phone"
+msgstr ""
+
+#: includes/WP_List_Table.OrdersTable.class.php:370
+msgid "Items"
+msgstr ""
+
+#: includes/WP_List_Table.OrdersTable.class.php:371
+msgid "Note"
+msgstr ""
+
+#: includes/WP_List_Table.OrdersTable.class.php:430
+#: includes/class-custom-post-types.php:103
+#: includes/class-custom-post-types.php:182
+msgid "Edit"
+msgstr ""
+
+#: includes/WP_List_Table.OrdersTable.class.php:478
+msgid " (on hold)"
+msgstr ""
+
+#: includes/WP_List_Table.OrdersTable.class.php:519
+msgid "Quantity:"
+msgstr ""
+
+#: includes/WP_List_Table.OrdersTable.class.php:530
+#: includes/class-installation-walkthrough.php:234 views/View.class.php:314
+msgid "Price:"
+msgstr ""
+
+#: includes/WP_List_Table.OrdersTable.class.php:539
+msgid "Total:"
+msgstr ""
+
+#: includes/WP_List_Table.OrdersTable.class.php:552
+msgctxt "Status label for orders put in the trash"
+msgid "Trash"
+msgstr ""
+
+#: includes/WP_List_Table.OrdersTable.class.php:641
+#: includes/class-custom-post-types.php:623
+msgid "Delete"
+msgstr ""
+
+#: includes/WP_List_Table.OrdersTable.class.php:642
+msgid "Set To Received"
+msgstr ""
+
+#: includes/WP_List_Table.OrdersTable.class.php:643
+msgid "Set To Accepted"
+msgstr ""
+
+#: includes/WP_List_Table.OrdersTable.class.php:644
+msgid "Set To Preparing"
+msgstr ""
+
+#: includes/WP_List_Table.OrdersTable.class.php:645
+msgid "Set To Ready"
+msgstr ""
+
+#: includes/WP_List_Table.OrdersTable.class.php:762
+#, php-format
+msgid "%d order deleted successfully."
+msgid_plural "%d orders deleted successfully."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/WP_List_Table.OrdersTable.class.php:765
+#, php-format
+msgid "%d order accepted."
+msgid_plural "%d orders accepted."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/WP_List_Table.OrdersTable.class.php:768
+#, php-format
+msgid "%d order set to preparing."
+msgid_plural "%d orders set to preparing."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/WP_List_Table.OrdersTable.class.php:771
+#, php-format
+msgid "%d order ready."
+msgid_plural "%d orders ready."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/WP_List_Table.OrdersTable.class.php:783
+#, php-format
+msgid "%d order had errors and could not be processed."
+msgid_plural "%d orders had errors and could not be processed."
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/WP_List_Table.OrdersTable.class.php:905
+msgid "You're viewing orders that have been moved to the trash."
+msgstr ""
+
+#: includes/WP_List_Table.OrdersTable.class.php:907
+#, php-format
+msgctxt ""
+"Indicates which order status is currently being filtered in the list of orders."
+msgid "You're viewing orders that have been marked as %s."
+msgstr ""
+
+#: includes/class-about-us.php:28 includes/class-about-us.php:29
+msgid "About Us"
+msgstr ""
+
+#: includes/class-about-us.php:51
+msgid "Who We Are"
+msgstr ""
+
+#: includes/class-about-us.php:55
+msgid "Lite vs. Premium vs. Ultimate"
+msgstr ""
+
+#: includes/class-about-us.php:59
+msgid "Getting Started"
+msgstr ""
+
+#: includes/class-about-us.php:63
+msgid "Suggest a Feature"
+msgstr ""
+
+#: includes/class-about-us.php:86
+msgid ""
+"The premium version includes several features that let you extend the "
+"functionality of the plugin and offer a great experience to your customers, "
+"including multiple layout options, custom fields, sorting and filtering options, "
+"and much more!"
+msgstr ""
+
+#: includes/class-about-us.php:88
+msgid ""
+"The ultimate version allows you to add a full food ordering system to your site. "
+"No more paying commissions to third-party services. Customers can add menu items "
+"to a cart, check out and pay directly on your site."
+msgstr ""
+
+#: includes/class-about-us.php:90
+msgid ""
+"The ultimate version also syncs with the <strong>Five Star Restaurant Manager "
+"mobile app</strong>, so you can manage your orders directly from your phone or "
+"tablet."
+msgstr ""
+
+#: includes/class-about-us.php:92
+msgid ""
+"The following table provides a comparison of the lite, premium and ultimate "
+"versions."
+msgstr ""
+
+#: includes/class-about-us.php:96
+msgid "Feature"
+msgstr ""
+
+#: includes/class-about-us.php:97
+msgid "Lite Version"
+msgstr ""
+
+#: includes/class-about-us.php:98
+msgid "Premium Version"
+msgstr ""
+
+#: includes/class-about-us.php:99
+msgid "Ultimate Version"
+msgstr ""
+
+#: includes/class-about-us.php:102
+msgid "Unlimited restaurant menus and menu items"
+msgstr ""
+
+#: includes/class-about-us.php:108
+msgid "Responsive layout that looks great on all devices"
+msgstr ""
+
+#: includes/class-about-us.php:114
+msgid "Gutenberg blocks, patterns and shortcodes to display menus and items"
+msgstr ""
+
+#: includes/class-about-us.php:120
+msgid "Optional sidebar to display sections, for quick navigation."
+msgstr ""
+
+#: includes/class-about-us.php:126
+msgid "Full Menu structured data automatically integrated"
+msgstr ""
+
+#: includes/class-about-us.php:132
+msgid "Create a QR code that links to your online menu"
+msgstr ""
+
+#: includes/class-about-us.php:138
+msgid "WPML compatible"
+msgstr ""
+
+#: includes/class-about-us.php:144
+msgid "Multiple prices for a single item"
+msgstr ""
+
+#: includes/class-about-us.php:150
+msgid "Advanced template system for layout customization"
+msgstr ""
+
+#: includes/class-about-us.php:156
+msgid "Multiple layout options"
+msgstr ""
+
+#: includes/class-about-us.php:162
+msgid "Custom fields for menu items"
+msgstr ""
+
+#: includes/class-about-us.php:168
+msgid "Menu sorting, filtering and search options"
+msgstr ""
+
+#: includes/class-about-us.php:174
+msgid "Icons to indicate dietary and ethical requirements"
+msgstr ""
+
+#: includes/class-about-us.php:180
+msgid "Badges for item features, specials and sales"
+msgstr ""
+
+#: includes/class-about-us.php:186
+msgid "Assign special or discount pricing to items"
+msgstr ""
+
+#: includes/class-about-us.php:192
+msgid "Google maps to show off local suppliers or ethical sourcing programs"
+msgstr ""
+
+#: includes/class-about-us.php:198
+msgid "Show related menu items"
+msgstr ""
+
+#: includes/class-about-us.php:204
+msgid "Advanced styling options"
+msgstr ""
+
+#: includes/class-about-us.php:210
+msgid "Advanced labelling options"
+msgstr ""
+
+#: includes/class-about-us.php:216
+msgid "Enable online ordering for your menu"
+msgstr ""
+
+#: includes/class-about-us.php:222
+msgid "Accept or require payment for food orders"
+msgstr ""
+
+#: includes/class-about-us.php:228
+msgid "Configure unlimited order status notifications"
+msgstr ""
+
+#: includes/class-about-us.php:234
+msgid "Send SMS updates to customers"
+msgstr ""
+
+#: includes/class-about-us.php:240
+msgid "Syncs with Five Star Restaurant Manager mobile app to manage orders"
+msgstr ""
+
+#: includes/class-about-us.php:248
+#, php-format
+msgid ""
+"<a href=\"%s\" target=\"_blank\" class=\"fdm-about-us-tab-button fdm-about-us-"
+"tab-button-purchase-alternate\">Buy Premium Version</a>"
+msgstr ""
+
+#: includes/class-about-us.php:249
+#, php-format
+msgid ""
+"<a href=\"%s\" target=\"_blank\" class=\"fdm-about-us-tab-button fdm-about-us-"
+"tab-button-purchase\">Buy Ultimate Version</a>"
+msgstr ""
+
+#: includes/class-about-us.php:256
+msgid ""
+"The walk-though that ran when you first activated the plugin offers a quick way "
+"to get started with setting it up. If you would like to run through it again, "
+"just click the button below"
+msgstr ""
+
+#: includes/class-about-us.php:258
+#, php-format
+msgid ""
+"<a href=\"%s\" class=\"fdm-about-us-tab-button fdm-about-us-tab-button-"
+"walkthrough\">Re-Run Walk-Through</a>"
+msgstr ""
+
+#: includes/class-about-us.php:260
+msgid ""
+"We also have a series of video tutorials that cover the available settings as "
+"well as key features of the plugin."
+msgstr ""
+
+#: includes/class-about-us.php:262
+#, php-format
+msgid ""
+"<a href=\"%s\" target=\"_blank\" class=\"fdm-about-us-tab-button fdm-about-us-"
+"tab-button-youtube\">YouTube Playlist</a>"
+msgstr ""
+
+#: includes/class-about-us.php:271
+msgid ""
+"You can use the form below to let us know about a feature suggestion you might "
+"have."
+msgstr ""
+
+#: includes/class-about-us.php:273
+msgid "Please describe your feature idea..."
+msgstr ""
+
+#: includes/class-about-us.php:277 includes/class-review-ask.php:55
+msgid "Email Address"
+msgstr ""
+
+#: includes/class-admin-orders.php:29
+msgctxt "Title of admin page that lists orders"
+msgid "Orders"
+msgstr ""
+
+#: includes/class-admin-orders.php:30
+msgctxt "Title of orders admin menu item"
+msgid "Orders"
+msgstr ""
+
+#: includes/class-admin-orders.php:38
+msgctxt "Title of admin page that lets you add or edit an order"
+msgid "Add/Edit Order"
+msgstr ""
+
+#: includes/class-admin-orders.php:39
+msgctxt "Title of the add/edit order admin menu item"
+msgid "Add New"
+msgstr ""
+
+#: includes/class-admin-orders.php:68
+msgid "Restaurant Orders"
+msgstr ""
+
+#: includes/class-admin-orders.php:69
+msgid "Add New"
+msgstr ""
+
+#: includes/class-ajax.php:266
+msgid "Order does not exist"
+msgstr ""
+
+#: includes/class-blocks.php:210 includes/class-patterns.php:58
+msgid "Five Star Restaurant Menu"
+msgstr ""
+
+#: includes/class-custom-post-types.php:101
+msgid "Add Menu"
+msgstr ""
+
+#: includes/class-custom-post-types.php:102
+msgid "Add New Menu"
+msgstr ""
+
+#: includes/class-custom-post-types.php:104
+msgid "Edit Menu"
+msgstr ""
+
+#: includes/class-custom-post-types.php:105
+msgid "New Menu"
+msgstr ""
+
+#: includes/class-custom-post-types.php:106
+#: includes/class-custom-post-types.php:185
+msgid "View"
+msgstr ""
+
+#: includes/class-custom-post-types.php:107
+msgid "View Menu"
+msgstr ""
+
+#: includes/class-custom-post-types.php:108
+msgid "Search Menus"
+msgstr ""
+
+#: includes/class-custom-post-types.php:109
+msgid "No Menu found"
+msgstr ""
+
+#: includes/class-custom-post-types.php:110
+msgid "No Menu found in Trash"
+msgstr ""
+
+#: includes/class-custom-post-types.php:111
+msgid "Parent Menu"
+msgstr ""
+
+#: includes/class-custom-post-types.php:140
+msgid "Menu Sections"
+msgstr ""
+
+#: includes/class-custom-post-types.php:142
+msgid "Search Menu Sections"
+msgstr ""
+
+#: includes/class-custom-post-types.php:143
+msgid "All Menu Sections"
+msgstr ""
+
+#: includes/class-custom-post-types.php:145
+msgid "Menu Section:"
+msgstr ""
+
+#: includes/class-custom-post-types.php:146
+msgid "Edit Menu Section"
+msgstr ""
+
+#: includes/class-custom-post-types.php:147
+msgid "Update Menu Section"
+msgstr ""
+
+#: includes/class-custom-post-types.php:148
+msgid "Add New Menu Section"
+msgstr ""
+
+#: includes/class-custom-post-types.php:150
+msgid "No menu sections"
+msgstr ""
+
+#: includes/class-custom-post-types.php:151
+msgid "Menu sections list navigation"
+msgstr ""
+
+#: includes/class-custom-post-types.php:152
+msgid "Menu sections list"
+msgstr ""
+
+#: includes/class-custom-post-types.php:153
+msgid "Menu Archives"
+msgstr ""
+
+#: includes/class-custom-post-types.php:154
+msgid "Insert into menu"
+msgstr ""
+
+#: includes/class-custom-post-types.php:155
+msgid "Uploaded to this menu"
+msgstr ""
+
+#: includes/class-custom-post-types.php:156
+msgid "Filter menu list"
+msgstr ""
+
+#: includes/class-custom-post-types.php:157
+msgid "Menu list navigation"
+msgstr ""
+
+#: includes/class-custom-post-types.php:158
+msgid "Menu list"
+msgstr ""
+
+#: includes/class-custom-post-types.php:180
+msgid "Add Menu Item"
+msgstr ""
+
+#: includes/class-custom-post-types.php:181
+msgid "Add New Menu Item"
+msgstr ""
+
+#: includes/class-custom-post-types.php:183
+msgid "Edit Menu Item"
+msgstr ""
+
+#: includes/class-custom-post-types.php:184
+msgid "New Menu Item"
+msgstr ""
+
+#: includes/class-custom-post-types.php:186
+msgid "View Menu Item"
+msgstr ""
+
+#: includes/class-custom-post-types.php:187
+msgid "Search Menu Items"
+msgstr ""
+
+#: includes/class-custom-post-types.php:188
+msgid "No Menu Item found"
+msgstr ""
+
+#: includes/class-custom-post-types.php:189
+msgid "No Menu Item found in Trash"
+msgstr ""
+
+#: includes/class-custom-post-types.php:190
+msgid "Parent Menu Item"
+msgstr ""
+
+#: includes/class-custom-post-types.php:191
+msgid "Item Photo"
+msgstr ""
+
+#: includes/class-custom-post-types.php:192
+msgid "Set item photo"
+msgstr ""
+
+#: includes/class-custom-post-types.php:193
+msgid "Remove item photo"
+msgstr ""
+
+#: includes/class-custom-post-types.php:194
+msgid "Use as item photo"
+msgstr ""
+
+#: includes/class-custom-post-types.php:195
+msgid "Menu Item Archives"
+msgstr ""
+
+#: includes/class-custom-post-types.php:196
+msgid "Insert into menu item"
+msgstr ""
+
+#: includes/class-custom-post-types.php:197
+msgid "Uploaded to this menu item"
+msgstr ""
+
+#: includes/class-custom-post-types.php:198
+msgid "Filter menu items list"
+msgstr ""
+
+#: includes/class-custom-post-types.php:199
+msgid "Menu items list navigation"
+msgstr ""
+
+#: includes/class-custom-post-types.php:200
+msgid "Menu items list"
+msgstr ""
+
+#: includes/class-custom-post-types.php:237
+msgid "Add Order"
+msgstr ""
+
+#: includes/class-custom-post-types.php:238
+msgid "Add New Order"
+msgstr ""
+
+#: includes/class-custom-post-types.php:239
+msgid "Edit Order"
+msgstr ""
+
+#: includes/class-custom-post-types.php:240
+msgid "New Order"
+msgstr ""
+
+#: includes/class-custom-post-types.php:241
+msgid "View Order"
+msgstr ""
+
+#: includes/class-custom-post-types.php:242
+msgid "Search Orders"
+msgstr ""
+
+#: includes/class-custom-post-types.php:243
+msgid "No order found"
+msgstr ""
+
+#: includes/class-custom-post-types.php:244
+msgid "No orders found in trash"
+msgstr ""
+
+#: includes/class-custom-post-types.php:245
+msgid "All Orders"
+msgstr ""
+
+#: includes/class-custom-post-types.php:300
+msgid "Menu Layout"
+msgstr ""
+
+#: includes/class-custom-post-types.php:310
+msgid "Menu Footer"
+msgstr ""
+
+#: includes/class-custom-post-types.php:332
+msgid "Ordering Options"
+msgstr ""
+
+#: includes/class-custom-post-types.php:356
+#: includes/class-custom-post-types.php:663 views/View.class.php:290
+msgid "Related Items"
+msgstr ""
+
+#: includes/class-custom-post-types.php:369
+msgid "Page Template"
+msgstr ""
+
+#: includes/class-custom-post-types.php:381
+msgid "Specials"
+msgstr ""
+
+#: includes/class-custom-post-types.php:393
+msgid "Source"
+msgstr ""
+
+#: includes/class-custom-post-types.php:458
+msgid "Remove this price"
+msgstr ""
+
+#: includes/class-custom-post-types.php:464
+msgid "Add Price"
+msgstr ""
+
+#: includes/class-custom-post-types.php:506
+msgid "Discounted Price"
+msgstr ""
+
+#: includes/class-custom-post-types.php:508
+msgid ""
+"Enter a special discounted price if you want the regular price to appear crossed "
+"out."
+msgstr ""
+
+#: includes/class-custom-post-types.php:525
+msgid "Duplicate"
+msgstr ""
+
+#: includes/class-custom-post-types.php:613
+msgid "Default?"
+msgstr ""
+
+#: includes/class-custom-post-types.php:614
+msgid "Extra Cost"
+msgstr ""
+
+#: includes/class-custom-post-types.php:634
+msgid "Add&nbsp;&plus;"
+msgstr ""
+
+#: includes/class-custom-post-types.php:666
+msgid "Related Item "
+msgstr ""
+
+#: includes/class-custom-post-types.php:697
+msgid "None"
+msgstr ""
+
+#: includes/class-custom-post-types.php:698 views/View.class.php:291
+msgid "On Sale"
+msgstr ""
+
+#: includes/class-custom-post-types.php:699 views/View.class.php:292
+msgid "Special Offer"
+msgstr ""
+
+#: includes/class-custom-post-types.php:700 views/View.class.php:293
+msgid "Featured"
+msgstr ""
+
+#: includes/class-custom-post-types.php:701 views/View.class.php:294
+msgid "Sold Out"
+msgstr ""
+
+#: includes/class-custom-post-types.php:768
+msgid "Source Name"
+msgstr ""
+
+#: includes/class-custom-post-types.php:772
+msgid "Source Description"
+msgstr ""
+
+#: includes/class-custom-post-types.php:779
+msgid "Source Address"
+msgstr ""
+
+#: includes/class-custom-post-types.php:781
+msgid "Enter the address to use in a Google Map."
+msgstr ""
+
+#: includes/class-custom-post-types.php:784
+msgid "Map Zoom Level"
+msgstr ""
+
+#: includes/class-custom-post-types.php:812
+#: includes/class-custom-post-types.php:829
+#: includes/class-installation-walkthrough.php:239
+msgid "Image"
+msgstr ""
+
+#: includes/class-custom-post-types.php:815
+msgid "Upload an image of the for this section:"
+msgstr ""
+
+#: includes/class-custom-post-types.php:834
+msgid "Clear the box and Update to remove the image."
+msgstr ""
+
+#: includes/class-custom-post-types.php:839
+msgid "Upload an image of the for this section."
+msgstr ""
+
+#: includes/class-custom-post-types.php:886
+msgid "Drag-and-drop Menu Sections into columns on your menu."
+msgstr ""
+
+#: includes/class-custom-post-types.php:891
+msgid "Available Sections"
+msgstr ""
+
+#: includes/class-custom-post-types.php:897
+#, php-format
+msgid ""
+"You don't have any Menu Sections yet. When you create Menu Items, you should "
+"%sassign them to Menu Sections%s."
+msgstr ""
+
+#: includes/class-custom-post-types.php:914
+msgid "Edit Section Name"
+msgstr ""
+
+#: includes/class-custom-post-types.php:924
+msgid "First Column"
+msgstr ""
+
+#: includes/class-custom-post-types.php:930
+msgid "Second Column"
+msgstr ""
+
+#: includes/class-custom-post-types.php:936
+msgid "Hint: Leave the second column empty to display the menu in a single column."
+msgstr ""
+
+#: includes/class-custom-post-types.php:952
+msgid "Default Menu Template"
+msgstr ""
+
+#: includes/class-custom-post-types.php:967
+msgid "Choose any of your theme templates to display your menu."
+msgstr ""
+
+#: includes/class-custom-post-types.php:1129
+#: includes/class-custom-post-types.php:1154
+#: includes/class-custom-post-types.php:1652
+#: includes/class-custom-post-types.php:1657
+msgid "Item Icon"
+msgstr ""
+
+#: includes/class-custom-post-types.php:1229
+msgid "Select an icon"
+msgstr ""
+
+#: includes/class-custom-post-types.php:1230
+msgid "The icon you wish to display for this item flag."
+msgstr ""
+
+#: includes/class-custom-post-types.php:1272
+#: includes/class-custom-post-types.php:1436 includes/class-dashboard.php:172
+#: widgets/WidgetMenu.class.php:68 widgets/WidgetMenuItem.class.php:65
+msgid "Title"
+msgstr ""
+
+#: includes/class-custom-post-types.php:1329
+msgid "Edit Price"
+msgstr ""
+
+#: includes/class-custom-post-types.php:1340
+msgid "Update Price"
+msgstr ""
+
+#: includes/class-custom-post-types.php:1357
+msgid ", "
+msgstr ""
+
+#: includes/class-custom-post-types.php:1378
+msgid "All sections"
+msgstr ""
+
+#: includes/class-custom-post-types.php:1384
+msgid "Unassigned items"
+msgstr ""
+
+#: includes/class-custom-post-types.php:1437
+msgid "Shortcode"
+msgstr ""
+
+#: includes/class-custom-post-types.php:1533
+msgid "This menu item could not be found. Please reload the page and try again."
+msgstr ""
+
+#: includes/class-custom-post-types.php:1599
+msgid "Default Page Template"
+msgstr ""
+
+#: includes/class-custom-post-types.php:1607
+#, php-format
+msgid "Page Template: %s"
+msgstr ""
+
+#: includes/class-custom-post-types.php:1648
+msgctxt "taxonomy general name"
+msgid "Item Icons"
+msgstr ""
+
+#: includes/class-custom-post-types.php:1649
+msgctxt "taxonomy singular name"
+msgid "Item Icon"
+msgstr ""
+
+#: includes/class-custom-post-types.php:1650
+msgid "Search Item Icons"
+msgstr ""
+
+#: includes/class-custom-post-types.php:1651
+msgid "All Item Icons"
+msgstr ""
+
+#: includes/class-custom-post-types.php:1653
+msgid "Item Icon:"
+msgstr ""
+
+#: includes/class-custom-post-types.php:1654
+msgid "Edit Item Icon"
+msgstr ""
+
+#: includes/class-custom-post-types.php:1655
+msgid "Update Item Icon"
+msgstr ""
+
+#: includes/class-custom-post-types.php:1656
+msgid "Add New Item Icon"
+msgstr ""
+
+#: includes/class-dashboard.php:101
+msgid "Restart Walk-Through"
+msgstr ""
+
+#: includes/class-dashboard.php:104
+msgid "Click the button below to restart the plugin walk-through"
+msgstr ""
+
+#: includes/class-dashboard.php:106
+msgid "Restart"
+msgstr ""
+
+#: includes/class-dashboard.php:116
+#, php-format
+msgid ""
+"<a href=\"%s\" target=\"_blank\">Visit our website</a> to learn how to upgrade "
+"to premium."
+msgstr ""
+
+#: includes/class-dashboard.php:124
+msgid ""
+"Thanks for being a premium user! <strong>If you're looking to upgrade to our "
+"ultimate version, enter your new product key below.</strong>"
+msgstr ""
+
+#: includes/class-dashboard.php:179
+msgid "No menus to display yet. Create an menu for it to be displayed here."
+msgstr ""
+
+#: includes/class-dashboard.php:319
+#, php-format
+msgid ""
+"<a href=\"%s\" target=\"_blank\">Visit our website</a> to learn how to get a "
+"free 7-day trial of the premium plugin."
+msgstr ""
+
+#: includes/class-dashboard.php:323
+msgid "Select version to trial"
+msgstr ""
+
+#: includes/class-dashboard.php:324 includes/class-settings.php:731
+#: includes/class-settings.php:764 includes/class-settings.php:779
+#: includes/class-settings.php:795
+msgid "Premium"
+msgstr ""
+
+#: includes/class-dashboard.php:325 includes/class-settings.php:747
+msgid "Ultimate"
+msgstr ""
+
+#: includes/class-dashboard.php:326
+msgid "SMS messaging will not work in the ultimate version trial."
+msgstr ""
+
+#: includes/class-dashboard.php:327
+msgid "Select"
+msgstr ""
+
+#: includes/class-deactivation-survey.php:36
+msgid "I no longer need the plugin"
+msgstr ""
+
+#: includes/class-deactivation-survey.php:39
+msgid "I'm switching to a different plugin"
+msgstr ""
+
+#: includes/class-deactivation-survey.php:40
+msgid "Please share which plugin"
+msgstr ""
+
+#: includes/class-deactivation-survey.php:43
+msgid "I couldn't get the plugin to work"
+msgstr ""
+
+#: includes/class-deactivation-survey.php:44
+msgid "Please share what wasn't working"
+msgstr ""
+
+#: includes/class-deactivation-survey.php:47
+msgid "It's a temporary deactivation"
+msgstr ""
+
+#: includes/class-deactivation-survey.php:50
+msgid "Other"
+msgstr ""
+
+#: includes/class-deactivation-survey.php:51
+msgid "Please share the reason"
+msgstr ""
+
+#: includes/class-deactivation-survey.php:58
+msgid "Quick Feedback"
+msgstr ""
+
+#: includes/class-deactivation-survey.php:59
+msgid ""
+"If you have a moment, please share why you are deactivating Five-Star Restaurant "
+"Menu:"
+msgstr ""
+
+#: includes/class-deactivation-survey.php:74
+msgid "Submit and Deactivate"
+msgstr ""
+
+#: includes/class-deactivation-survey.php:75
+msgid "Skip and Deactivate"
+msgstr ""
+
+#: includes/class-helper.php:59 includes/class-order-item.php:237
+#: includes/class-order-payments.php:242 includes/class-order-payments.php:329
+msgid ""
+"The request has been rejected because it does not appear to have come from this "
+"site."
+msgstr ""
+
+#: includes/class-import.php:45
+msgid "Spreadsheet Containing Menu Items"
+msgstr ""
+
+#: includes/class-import.php:173
+msgid "Menu items added successfully."
+msgstr ""
+
+#: includes/class-import.php:186
+msgid "The uploaded file exceeds the upload_max_filesize directive in php.ini"
+msgstr ""
+
+#: includes/class-import.php:189
+msgid ""
+"The uploaded file exceeds the MAX_FILE_SIZE directive that was specified in the "
+"HTML form"
+msgstr ""
+
+#: includes/class-import.php:192
+msgid "The uploaded file was only partially uploaded"
+msgstr ""
+
+#: includes/class-import.php:195
+msgid "No file was uploaded."
+msgstr ""
+
+#: includes/class-import.php:199
+msgid "Missing a temporary folder"
+msgstr ""
+
+#: includes/class-import.php:202
+msgid "Failed to write file to disk"
+msgstr ""
+
+#: includes/class-import.php:205
+msgid "File upload stopped by extension"
+msgstr ""
+
+#: includes/class-import.php:209
+msgid "No error code avaiable"
+msgstr ""
+
+#: includes/class-import.php:214
+msgid "No file was uploaded here.."
+msgstr ""
+
+#: includes/class-import.php:220
+msgid "File must be .csv, .xls or .xlsx"
+msgstr ""
+
+#: includes/class-installation-walkthrough.php:49
+#: includes/class-installation-walkthrough.php:50
+msgid "Five-Star Restaurant Menu - Welcome!"
+msgstr ""
+
+#: includes/class-installation-walkthrough.php:192
+msgid "Welcome to the Five-Star Restaurant Menu Plugin"
+msgstr ""
+
+#: includes/class-installation-walkthrough.php:193
+msgid ""
+"Thanks for choosing the Five-Star Restaurant Menu! The following will help you "
+"get started with the setup of your menu by creating your first sections, menu "
+"items and menu page, as well as configuring a few key options."
+msgstr ""
+
+#: includes/class-installation-walkthrough.php:198
+msgid "1. Create Sections"
+msgstr ""
+
+#: includes/class-installation-walkthrough.php:200
+msgid ""
+"Sections let you organize your menu in a way that is easy for you - and your "
+"customers - to find (like \"Drinks\", \"Appetizers\", etc.)."
+msgstr ""
+
+#: includes/class-installation-walkthrough.php:202
+msgid "Section Name:"
+msgstr ""
+
+#: includes/class-installation-walkthrough.php:203
+msgid "Section Description:"
+msgstr ""
+
+#: includes/class-installation-walkthrough.php:204
+msgid "Add Section"
+msgstr ""
+
+#: includes/class-installation-walkthrough.php:207
+msgid "Created Sections:"
+msgstr ""
+
+#: includes/class-installation-walkthrough.php:209
+#: includes/class-installation-walkthrough.php:241
+msgid "Description"
+msgstr ""
+
+#: includes/class-installation-walkthrough.php:212
+#: includes/class-installation-walkthrough.php:247
+#: includes/class-installation-walkthrough.php:268
+msgid "Next Step"
+msgstr ""
+
+#: includes/class-installation-walkthrough.php:218
+msgid "2. Add Menu Items"
+msgstr ""
+
+#: includes/class-installation-walkthrough.php:222
+msgid "Image:"
+msgstr ""
+
+#: includes/class-installation-walkthrough.php:231
+msgid "Name:"
+msgstr ""
+
+#: includes/class-installation-walkthrough.php:232
+msgid "Description:"
+msgstr ""
+
+#: includes/class-installation-walkthrough.php:233
+msgid "Section:"
+msgstr ""
+
+#: includes/class-installation-walkthrough.php:238
+msgid "Created Items:"
+msgstr ""
+
+#: includes/class-installation-walkthrough.php:249
+msgid "Save and Continue"
+msgstr ""
+
+#: includes/class-installation-walkthrough.php:251
+#: includes/class-installation-walkthrough.php:269
+#: includes/class-installation-walkthrough.php:283
+msgid "Previous Step"
+msgstr ""
+
+#: includes/class-installation-walkthrough.php:259
+msgid "3. Create a Menu"
+msgstr ""
+
+#: includes/class-installation-walkthrough.php:261
+msgid ""
+"You can make multiple menus, but one menu with all of your sections is a great "
+"place to start."
+msgstr ""
+
+#: includes/class-installation-walkthrough.php:263
+msgid "Menu Name:"
+msgstr ""
+
+#: includes/class-installation-walkthrough.php:264
+msgid "Sections:"
+msgstr ""
+
+#: includes/class-installation-walkthrough.php:265
+msgid "Create Menu"
+msgstr ""
+
+#: includes/class-installation-walkthrough.php:275
+msgid "4. Add a Menu Page"
+msgstr ""
+
+#: includes/class-installation-walkthrough.php:277
+msgid ""
+"You can create a dedicated menu page below, or skip this step and add your menu "
+"to a page you've already created manually."
+msgstr ""
+
+#: includes/class-installation-walkthrough.php:279
+msgid "Page Title:"
+msgstr ""
+
+#: includes/class-installation-walkthrough.php:280
+msgid "Create Page"
+msgstr ""
+
+#: includes/class-installation-walkthrough.php:284
+msgid "Finish"
+msgstr ""
+
+#: includes/class-installation-walkthrough.php:290
+msgid "Skip Setup"
+msgstr ""
+
+#: includes/class-order-notification.php:80
+msgid "Accept Order"
+msgstr ""
+
+#: includes/class-order-payments.php:244
+msgid "Invalid order."
+msgstr ""
+
+#: includes/class-order-payments.php:310
+msgid "Payment Intent generated succsssfully"
+msgstr ""
+
+#: includes/class-order-payments.php:348
+msgid "Invalid submission. Please contact admin"
+msgstr ""
+
+#: includes/class-order-payments.php:374
+msgid "Payment charge failed. Please try again"
+msgstr ""
+
+#: includes/class-order-payments.php:488
+msgid "Payment on Hold"
+msgstr ""
+
+#: includes/class-order-payments.php:489
+msgid "Payment has been held on the card, but not charged yet."
+msgstr ""
+
+#: includes/class-order-payments.php:495
+msgid "Held Payment Captured"
+msgstr ""
+
+#: includes/class-order-payments.php:496
+msgid "Payment has been captured."
+msgstr ""
+
+#: includes/class-order-payments.php:509
+msgid "Charge Payment on Hold"
+msgstr ""
+
+#: includes/class-order-payments.php:555 includes/class-order-payments.php:564
+#, php-format
+msgid "Five Star FDM: Stripe Payment capture failed. Reason: %s"
+msgstr ""
+
+#: includes/class-order-payments.php:580
+#, php-format
+msgid "Unable to find the Order for ID %s"
+msgstr ""
+
+#: includes/class-settings.php:94
+msgctxt ""
+"Default time format for display. Must match formatting rules at http://amsul.ca/"
+"pickadate.js/time/#formats"
+msgid "h:i A"
+msgstr ""
+
+#: includes/class-settings.php:95
+msgctxt ""
+"Default date format for display. Must match formatting rules at http://amsul.ca/"
+"pickadate.js/date/#formats"
+msgid "mmmm d, yyyy"
+msgstr ""
+
+#: includes/class-settings.php:105
+msgid "Order not successfully created"
+msgstr ""
+
+#: includes/class-settings.php:106
+msgid "Order was successfully created"
+msgstr ""
+
+#: includes/class-settings.php:107
+#, php-format
+msgid "You have successfully made a payment of %s"
+msgstr ""
+
+#: includes/class-settings.php:108
+#, php-format
+msgid "Your payment was declined with the following error code %s"
+msgstr ""
+
+#: includes/class-settings.php:117
+msgctxt ""
+"The subject for the email sent to the customer when their order is accepted."
+msgid "Your order has been accepted"
+msgstr ""
+
+#: includes/class-settings.php:118
+msgctxt ""
+"Default email sent to the customer when a new order is received. The tags in "
+"{brackets} will be replaced by the appropriate content and should be left in "
+"place. HTML is allowed, but be aware that many email clients do not handle HTML "
+"very well."
+msgid ""
+"Your order with {site_name} has been accepted:\n"
+"\n"
+"Order Number: {order_number}\n"
+"\n"
+"Name: {name}\n"
+"Email: {email}\n"
+"Phone: {phone}\n"
+"Note: {note}\n"
+"Payment Amount: {payment_amount}\n"
+"{custom_fields}\n"
+"\n"
+"Items ordered:\n"
+"\n"
+"{order_items}\n"
+"\n"
+"&nbsp;\n"
+"\n"
+"<em>This message was sent by {site_link} on {current_time}.</em>"
+msgstr ""
+
+#: includes/class-settings.php:140
+msgctxt "The subject for the email sent to the admin when a new order is received."
+msgid "New Order Submitted"
+msgstr ""
+
+#: includes/class-settings.php:141
+msgctxt ""
+"Default email sent to the admin when a new order is received. The tags in "
+"{brackets} will be replaced by the appropriate content and should be left in "
+"place. HTML is allowed, but be aware that many email clients do not handle HTML "
+"very well."
+msgid ""
+"A new order has been submitted at {site_name}:\n"
+"\n"
+"Name: {name}\n"
+"Email: {email}\n"
+"Phone: {phone}\n"
+"Note: {note}\n"
+"Payment Amount: {payment_amount}\n"
+"{custom_fields}\n"
+"\n"
+"Items ordered:\n"
+"\n"
+"{order_items}\n"
+"\n"
+"Click on the following link to accept the order: {accept_link}\n"
+"\n"
+"&nbsp;\n"
+"\n"
+"<em>This message was sent by {site_link} on {current_time}.</em>"
+msgstr ""
+
+#: includes/class-settings.php:285
+msgid "Basic"
+msgstr ""
+
+#: includes/class-settings.php:296
+msgid "Style"
+msgstr ""
+
+#: includes/class-settings.php:297
+msgid "Choose what style you would like to use for your menu."
+msgstr ""
+
+#: includes/class-settings.php:312
+msgid "Menu Formatting"
+msgstr ""
+
+#: includes/class-settings.php:313
+msgid "Choose the formatting for your menus."
+msgstr ""
+
+#: includes/class-settings.php:324
+msgid "Enable Sidebar"
+msgstr ""
+
+#: includes/class-settings.php:325
+msgid ""
+"Display a sidebar for your menu that allows visitors to choose what section they "
+"want to view."
+msgstr ""
+
+#: includes/class-settings.php:334
+msgid "Sidebar Click Action"
+msgstr ""
+
+#: includes/class-settings.php:335
+msgid ""
+"Choose what happens when you click a section in the menu sidebar. Only Selected "
+"will display only the chosen section, with no scrolling feature. Scroll displays "
+"all the sections and then scrolls to the chosen one."
+msgstr ""
+
+#: includes/class-settings.php:351
+msgid "Expandable Mobile Sidebar"
+msgstr ""
+
+#: includes/class-settings.php:352
+msgid ""
+"Enabling this will make it so that, on smaller devices, the sidebar is hidden by "
+"default and a button is displayed to show/expand the sidebar."
+msgstr ""
+
+#: includes/class-settings.php:363
+msgid "Section Images"
+msgstr ""
+
+#: includes/class-settings.php:364
+msgid "Choose the location, if any, for your section images relative to the title."
+msgstr ""
+
+#: includes/class-settings.php:380
+msgid "Display Section Descriptions"
+msgstr ""
+
+#: includes/class-settings.php:381
+msgid ""
+"Enable this if you want to display the section descriptions in the main menu "
+"area."
+msgstr ""
+
+#: includes/class-settings.php:390
+msgid "Functionality"
+msgstr ""
+
+#: includes/class-settings.php:391
+msgid "Choose what features of the menu items you wish to enable or disable."
+msgstr ""
+
+#: includes/class-settings.php:401
+msgid "Disable Price"
+msgstr ""
+
+#: includes/class-settings.php:402
+msgid "Disable all pricing options for menu items."
+msgstr ""
+
+#: includes/class-settings.php:411
+msgid "Disable Price Decimals"
+msgstr ""
+
+#: includes/class-settings.php:412
+msgid ""
+"Don't display decimal places in the menu item prices. This setting only works if "
+"there is no text in your prices."
+msgstr ""
+
+#: includes/class-settings.php:421
+msgid "Disable Microdata"
+msgstr ""
+
+#: includes/class-settings.php:422
+msgid ""
+"Disable the structured data that is automatically added to the menu page. "
+"Structured data is used by search engines and other services to intepret your "
+"menu."
+msgstr ""
+
+#: includes/class-settings.php:431
+msgid "Product Details"
+msgstr ""
+
+#: includes/class-settings.php:432
+msgid ""
+"Should visitors be able to click on menu items to view more details about them "
+"(custom fields, related items, etc.)? If so, should that display in a lightbox "
+"or redirect to the permalink page?"
+msgstr ""
+
+#: includes/class-settings.php:447
+msgid "Currency Symbol"
+msgstr ""
+
+#: includes/class-settings.php:448
+msgid "The symbol added either before or after menu prices."
+msgstr ""
+
+#: includes/class-settings.php:457
+msgid "Currency Symbol Location"
+msgstr ""
+
+#: includes/class-settings.php:458
+msgid "Choose whether the currency symbol be displayed before or after the price."
+msgstr ""
+
+#: includes/class-settings.php:472
+msgid "Google Map"
+msgstr ""
+
+#: includes/class-settings.php:482
+msgid "Disable Source Map"
+msgstr ""
+
+#: includes/class-settings.php:483
+msgid "Disable the source map."
+msgstr ""
+
+#: includes/class-settings.php:492
+msgid "Google Maps API Key"
+msgstr ""
+
+#: includes/class-settings.php:494
+#, php-format
+msgid ""
+"Google requires an API key to use their maps. %sGet an API key%s. A full walk-"
+"through is available in the %sdocumentation%s."
+msgstr ""
+
+#: includes/class-settings.php:510 includes/class-settings.php:528
+msgid "QR Code"
+msgstr ""
+
+#: includes/class-settings.php:516
+msgid ""
+"Enter the URL of your menu/ordering page here and it will generate a QR code, "
+"which you can then use at your restaurant to let people view a contactless menu."
+msgstr ""
+
+#: includes/class-settings.php:578 includes/class-settings.php:731
+msgid "Advanced"
+msgstr ""
+
+#: includes/class-settings.php:598 includes/class-settings.php:747
+msgid "Ordering"
+msgstr ""
+
+#: includes/class-settings.php:638 includes/class-settings.php:779
+msgid "Labelling"
+msgstr ""
+
+#: includes/class-settings.php:658 includes/class-settings.php:795
+msgid "Styling"
+msgstr ""
+
+#: includes/class-settings.php:705
+msgid ""
+"The ultimate version also gives you access to all of the premium features, "
+"including:"
+msgstr ""
+
+#: includes/class-settings.php:705
+msgid "The premium version also gives you access to the following features:"
+msgstr ""
+
+#: includes/class-settings.php:710
+msgid "Advanced Menu Layouts"
+msgstr ""
+
+#: includes/class-settings.php:711
+msgid "Custom Menu Fields"
+msgstr ""
+
+#: includes/class-settings.php:712
+msgid "Sorting and Filtering"
+msgstr ""
+
+#: includes/class-settings.php:713
+msgid "Dietary Icons"
+msgstr ""
+
+#: includes/class-settings.php:714
+msgid "Featured Item Flag"
+msgstr ""
+
+#: includes/class-settings.php:715
+msgid "Special/Discount Pricing"
+msgstr ""
+
+#: includes/class-settings.php:716
+msgid "Advanced Styling Options"
+msgstr ""
+
+#: includes/class-settings.php:717
+msgid "Advanced Labelling Options"
+msgstr ""
+
+#: includes/class-settings.php:718
+msgid "Email Support"
+msgstr ""
+
+#: includes/class-settings.php:721
+msgid "UPGRADE NOW"
+msgstr ""
+
+#: includes/class-settings.php:732
+msgid ""
+"The advanced options let you enable menu item search, sorting and price "
+"filtering, as well as configure the related menu items, menu item flags, "
+"specials and discounted prices."
+msgstr ""
+
+#: includes/class-settings.php:748
+msgid ""
+"You can allow your customers to place orders directly from your menu. There are "
+"options to require payment (PayPal or Stripe), set a minimum amount for "
+"ordering, set a schedule for when ordering should be available and more!"
+msgstr ""
+
+#: includes/class-settings.php:749
+msgid ""
+"You can also enable <strong>SMS</strong> or email notifications for your "
+"customers. And it syncs with our <strong>Five Star Star Restaurant Manager "
+"mobile app</strong>, so you can manage your orders either from the kitchen or on "
+"the go!"
+msgstr ""
+
+#: includes/class-settings.php:765
+msgid ""
+"You can add extra custom fields to your menu items or to the order form. These "
+"can be used to display additional info (toppings, allergies, etc.) or to request "
+"info from the customer when ordering."
+msgstr ""
+
+#: includes/class-settings.php:780
+msgid ""
+"The labelling options let you change the wording of the different labels that "
+"appear on the front end of the plugin. You can use this to translate them, "
+"customize the wording for your purpose, etc."
+msgstr ""
+
+#: includes/class-settings.php:796
+msgid ""
+"The styling options let you choose a menu layout and menu item flag icon size as "
+"well as modify the colors, font family, font size and borders of the various "
+"elements found in your menus."
+msgstr ""
+
+#: includes/integrations/business-profile.php:24
+msgid ""
+"Select the page that shows your main restaurant menu. Google may display this in "
+"your restaurant listing."
+msgstr ""
+
+#: includes/patterns/menu-item.php:7
+msgctxt "Block pattern description"
+msgid "Adds a single restaurant menu item."
+msgstr ""
+
+#: includes/patterns/menu-items-image-title-three.php:6
+msgid "Three Menu Items - Image and Title"
+msgstr ""
+
+#: includes/patterns/menu-items-image-title-three.php:7
+msgctxt "Block pattern description"
+msgid ""
+"Adds three menu items. You can choose which three to display. Displays only the "
+"image and title of the item."
+msgstr ""
+
+#: includes/patterns/menu-items-just-image-three.php:6
+msgid "Three Menu Items - Just the Image"
+msgstr ""
+
+#: includes/patterns/menu-items-just-image-three.php:7
+msgctxt "Block pattern description"
+msgid ""
+"Adds three menu items. You can choose which three to display. Displays only the "
+"image of the item."
+msgstr ""
+
+#: includes/patterns/menu-items-three.php:6
+msgid "Three Menu Items"
+msgstr ""
+
+#: includes/patterns/menu-items-three.php:7
+msgctxt "Block pattern description"
+msgid ""
+"Adds three menu items. You can choose which three to display. Displays only the "
+"image (if applicable), title and description."
+msgstr ""
+
+#: includes/patterns/menu-no-sidebar.php:6
+msgid "Menu with No Sidebar"
+msgstr ""
+
+#: includes/patterns/menu-no-sidebar.php:7
+msgctxt "Block pattern description"
+msgid "Adds a restaurant menu with no sidebar."
+msgstr ""
+
+#: includes/patterns/menu-section-just-items.php:6
+msgid "Menu Section Just Items"
+msgstr ""
+
+#: includes/patterns/menu-section-just-items.php:7
+msgctxt "Block pattern description"
+msgid ""
+"Adds a restaurant menu section with no title or description, only the menu items."
+msgstr ""
+
+#: includes/patterns/menu-section.php:7
+msgctxt "Block pattern description"
+msgid "Adds a restaurant menu section."
+msgstr ""
+
+#: includes/patterns/menu.php:7
+msgctxt "Block pattern description"
+msgid "Adds a restaurant menu."
+msgstr ""
+
+#: includes/template-functions.php:234
+msgid "Order status has been set to "
+msgstr ""
+
+#: includes/template-functions.php:240
+msgid ""
+"Order status could not be updated. Please make sure you're logged in and that "
+"the status exists."
+msgstr ""
+
+#: includes/template-functions.php:246
+msgid ""
+"You do not have permission to update the order's status. Please make sure you're "
+"logged in."
+msgstr ""
+
+#: includes/template-functions.php:259
+msgid "Received"
+msgstr ""
+
+#: includes/template-functions.php:263
+msgid "Accepted"
+msgstr ""
+
+#: includes/template-functions.php:267
+msgid "Preparing"
+msgstr ""
+
+#: includes/template-functions.php:271
+msgid "Ready"
+msgstr ""
+
+#: lib/simple-admin-pages/classes/AdminPage.class.php:173
+msgid "You do not have sufficient permissions to access this page."
+msgstr ""
+
+#: lib/simple-admin-pages/classes/AdminPageSetting.FileUpload.class.php:48
+msgid "Current image:"
+msgstr ""
+
+#: lib/simple-admin-pages/classes/AdminPageSetting.FileUpload.class.php:61
+msgid "Upload Image"
+msgstr ""
+
+#: lib/simple-admin-pages/classes/AdminPageSetting.InfiniteTable.class.php:200
+msgid "Save"
+msgstr ""
+
+#: views/View.class.php:295
+msgid "View Sections"
+msgstr ""
+
+#: views/View.class.php:297
+msgid "Filtering"
+msgstr ""
+
+#: views/View.class.php:298
+msgid "Search"
+msgstr ""
+
+#: views/View.class.php:299
+msgid "Search Items..."
+msgstr ""
+
+#: views/View.class.php:301
+msgid "Sorting"
+msgstr ""
+
+#: views/View.class.php:302
+msgid "Name (A -> Z)"
+msgstr ""
+
+#: views/View.class.php:303
+msgid "Name (Z -> A)"
+msgstr ""
+
+#: views/View.class.php:304
+msgid "Price (Ascending)"
+msgstr ""
+
+#: views/View.class.php:305
+msgid "Price (Descending)"
+msgstr ""
+
+#: views/View.class.php:306
+msgid "Date Added (Ascending)"
+msgstr ""
+
+#: views/View.class.php:307
+msgid "Date Added (Descending)"
+msgstr ""
+
+#: views/View.class.php:308
+msgid "Section (Ascending)"
+msgstr ""
+
+#: views/View.class.php:309
+msgid "Section (Descending)"
+msgstr ""
+
+#: views/View.class.php:311
+msgid "Add to Cart"
+msgstr ""
+
+#: views/View.class.php:312
+msgid "Discount:"
+msgstr ""
+
+#: views/View.class.php:313
+msgid "Remove"
+msgstr ""
+
+#: views/View.class.php:315
+msgid "Order Item Details"
+msgstr ""
+
+#: views/View.class.php:316
+msgid "Item Note"
+msgstr ""
+
+#: views/View.class.php:317
+msgid "Confirm Details"
+msgstr ""
+
+#: views/View.class.php:318
+msgid "Order Progress"
+msgstr ""
+
+#: views/View.class.php:319
+msgid "Order Summary"
+msgstr ""
+
+#: views/View.class.php:320
+msgid "Item in Your Cart"
+msgstr ""
+
+#: views/View.class.php:321
+msgid "Items in Your Cart"
+msgstr ""
+
+#: views/View.class.php:322
+msgid "Item(s) in Your Cart"
+msgstr ""
+
+#: views/View.class.php:324
+msgid "Clear"
+msgstr ""
+
+#: views/View.class.php:325
+msgid "Tax"
+msgstr ""
+
+#: views/View.class.php:326
+msgid "Total"
+msgstr ""
+
+#: views/View.class.php:327
+msgid "Check Out"
+msgstr ""
+
+#: views/View.class.php:331
+msgid "Order Note"
+msgstr ""
+
+#: views/View.class.php:332
+msgid "Pay in Store"
+msgstr ""
+
+#: views/View.class.php:333
+msgid "Pay Online"
+msgstr ""
+
+#: views/View.class.php:334
+msgid "Submit Order"
+msgstr ""
+
+#: views/View.class.php:335
+msgid "+ Add another item"
+msgstr ""
+
+#: views/View.class.php:336
+msgid "Pay via PayPal"
+msgstr ""
+
+#: views/View.class.php:337
+msgid ""
+"We are only placing a hold for the above amount on your payment instrument. You "
+"will be charged later."
+msgstr ""
+
+#: views/View.class.php:338
+msgid "Card Number"
+msgstr ""
+
+#: views/View.class.php:339
+msgid "CVC"
+msgstr ""
+
+#: views/View.class.php:340
+msgid "Expiration (MM/YYYY)"
+msgstr ""
+
+#: views/View.class.php:341
+msgid "Pay Now"
+msgstr ""
+
+#: widgets/WidgetMenu.class.php:19
+msgid "Food and Drink Menu"
+msgstr ""
+
+#: widgets/WidgetMenu.class.php:20
+msgid "Display your food and drink menu."
+msgstr ""
+
+#: widgets/WidgetMenuItem.class.php:19
+msgid "Food and Drink Menu Item"
+msgstr ""
+
+#: widgets/WidgetMenuItem.class.php:20
+msgid "Display a single item from your food and drink menu."
+msgstr ""

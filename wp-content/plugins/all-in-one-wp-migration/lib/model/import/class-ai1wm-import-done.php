@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (C) 2014-2020 ServMask Inc.
+ * Copyright (C) 2014-2025 ServMask Inc.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,6 +14,8 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Attribution: This code is part of the All-in-One WP Migration plugin, developed by
  *
  * ███████╗███████╗██████╗ ██╗   ██╗███╗   ███╗ █████╗ ███████╗██╗  ██╗
  * ██╔════╝██╔════╝██╔══██╗██║   ██║████╗ ████║██╔══██╗██╔════╝██║ ██╔╝
@@ -82,6 +84,7 @@ class Ai1wm_Import_Done {
 					ai1wm_discover_plugin_basename( 'pro-sites/pro-sites.php' ),
 					ai1wm_discover_plugin_basename( 'wpide/WPide.php' ),
 					ai1wm_discover_plugin_basename( 'page-optimize/page-optimize.php' ),
+					ai1wm_discover_plugin_basename( 'update-services/update-services.php' ),
 				)
 			);
 
@@ -188,6 +191,7 @@ class Ai1wm_Import_Done {
 						ai1wm_discover_plugin_basename( 'pro-sites/pro-sites.php' ),
 						ai1wm_discover_plugin_basename( 'wpide/WPide.php' ),
 						ai1wm_discover_plugin_basename( 'page-optimize/page-optimize.php' ),
+						ai1wm_discover_plugin_basename( 'update-services/update-services.php' ),
 					)
 				);
 
@@ -297,6 +301,7 @@ class Ai1wm_Import_Done {
 						ai1wm_discover_plugin_basename( 'pro-sites/pro-sites.php' ),
 						ai1wm_discover_plugin_basename( 'wpide/WPide.php' ),
 						ai1wm_discover_plugin_basename( 'page-optimize/page-optimize.php' ),
+						ai1wm_discover_plugin_basename( 'update-services/update-services.php' ),
 					)
 				);
 
@@ -357,12 +362,14 @@ class Ai1wm_Import_Done {
 
 		// Set progress
 		if ( ai1wm_validate_plugin_basename( 'fusion-builder/fusion-builder.php' ) ) {
-			Ai1wm_Status::done( __( 'Your site has been imported successfully!', AI1WM_PLUGIN_NAME ), Ai1wm_Template::get_content( 'import/avada', array( 'should_reset_permalinks' => $should_reset_permalinks ) ) );
+			Ai1wm_Status::done( __( 'Your site has been imported successfully!', 'all-in-one-wp-migration' ), Ai1wm_Template::get_content( 'import/avada', array( 'should_reset_permalinks' => $should_reset_permalinks ) ) );
 		} elseif ( ai1wm_validate_plugin_basename( 'oxygen/functions.php' ) ) {
-			Ai1wm_Status::done( __( 'Your site has been imported successfully!', AI1WM_PLUGIN_NAME ), Ai1wm_Template::get_content( 'import/oxygen', array( 'should_reset_permalinks' => $should_reset_permalinks ) ) );
+			Ai1wm_Status::done( __( 'Your site has been imported successfully!', 'all-in-one-wp-migration' ), Ai1wm_Template::get_content( 'import/oxygen', array( 'should_reset_permalinks' => $should_reset_permalinks ) ) );
 		} else {
-			Ai1wm_Status::done( __( 'Your site has been imported successfully!', AI1WM_PLUGIN_NAME ), Ai1wm_Template::get_content( 'import/done', array( 'should_reset_permalinks' => $should_reset_permalinks ) ) );
+			Ai1wm_Status::done( __( 'Your site has been imported successfully!', 'all-in-one-wp-migration' ), Ai1wm_Template::get_content( 'import/done', array( 'should_reset_permalinks' => $should_reset_permalinks ) ) );
 		}
+
+		do_action( 'ai1wm_status_import_done', $params );
 
 		return $params;
 	}

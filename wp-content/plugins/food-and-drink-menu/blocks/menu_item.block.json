@@ -1,0 +1,27 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 2,
+    "name": "food-and-drink-menu/menu-item",
+    "title": "Menu",
+    "category": "fdm-blocks",
+    "icon": "star",
+    "description": "Shows a menu item (hamburger, pepperoni pizza, etc.) created using the Five-Star Restaurant Menu plugin", 
+    "keywords": [ "restaurant", "menu", "food", "drink" ],
+    "version": "1.0.0",
+    "textdomain": "food-and-drink-menu",
+    "attributes": {
+        "id": {
+            "type": "number",
+            "minimum": "0"
+        }
+    },
+    "providesContext": {
+        "food-and-drink-menu/itemId": "id"
+    },
+    "example": {
+        "attributes": {
+            "id": "0"
+        }
+    },
+    "editorScript": "food-and-drink-menu-blocks"
+}

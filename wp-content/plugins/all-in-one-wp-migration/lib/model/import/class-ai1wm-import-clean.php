@@ -1,6 +1,6 @@
 <?php
 /**
- * Copyright (C) 2014-2020 ServMask Inc.
+ * Copyright (C) 2014-2025 ServMask Inc.
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -14,6 +14,8 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Attribution: This code is part of the All-in-One WP Migration plugin, developed by
  *
  * ███████╗███████╗██████╗ ██╗   ██╗███╗   ███╗ █████╗ ███████╗██╗  ██╗
  * ██╔════╝██╔════╝██╔══██╗██║   ██║████╗ ████║██╔══██╗██╔════╝██║ ██╔╝
@@ -30,18 +32,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 class Ai1wm_Import_Clean {
 
 	public static function execute( $params ) {
-		global $wpdb;
-
 		// Get database client
-		if ( empty( $wpdb->use_mysqli ) ) {
-			$mysql = new Ai1wm_Database_Mysql( $wpdb );
-		} else {
-			$mysql = new Ai1wm_Database_Mysqli( $wpdb );
-		}
+		$db_client = Ai1wm_Database_Utility::create_client();
 
 		// Flush mainsite tables
-		$mysql->add_table_prefix_filter( ai1wm_table_prefix( 'mainsite' ) );
-		$mysql->flush();
+		$db_client->add_table_prefix_filter( ai1wm_table_prefix( 'mainsite' ) );
+		$db_client->flush();
+
+		// Trigger import cancel action
+		if ( isset( $params['ai1wm_import_cancel'] ) ) {
+			do_action( 'ai1wm_status_import_canceled', $params );
+		} else {
+			do_action( 'ai1wm_status_import_done', $params );
+		}
 
 		// Delete storage files
 		Ai1wm_Directory::delete( ai1wm_storage_path( $params ) );
