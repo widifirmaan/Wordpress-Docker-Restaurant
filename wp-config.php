@@ -128,6 +128,9 @@ if ($configExtra = getenv_docker('WORDPRESS_CONFIG_EXTRA', '')) {
 	eval ($configExtra);
 }
 
+define('WP_HOME', 'http://localhost:8082');
+define('WP_SITEURL', 'http://localhost:8082');
+
 /* That's all, stop editing! Happy publishing. */
 
 /** Absolute path to the WordPress directory. */
