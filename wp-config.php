@@ -128,8 +128,21 @@ if ($configExtra = getenv_docker('WORDPRESS_CONFIG_EXTRA', '')) {
 	eval ($configExtra);
 }
 
-define('WP_HOME', 'http://localhost:8082');
-define('WP_SITEURL', 'http://localhost:8082');
+// Dynamic URL definition to support both Localhost and Cloudflare Tunnel
+$http_host = $_SERVER['HTTP_HOST'];
+if (isset($_SERVER['HTTP_X_FORWARDED_HOST'])) {
+	$http_host = $_SERVER['HTTP_X_FORWARDED_HOST'];
+}
+
+$proto = 'http';
+if (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && strcasecmp($_SERVER['HTTP_X_FORWARDED_PROTO'], 'https') === 0) {
+	$proto = 'https';
+} elseif (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') {
+	$proto = 'https';
+}
+
+define('WP_HOME', $proto . '://' . $http_host);
+define('WP_SITEURL', $proto . '://' . $http_host);
 
 /* That's all, stop editing! Happy publishing. */
 
