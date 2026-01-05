@@ -9,8 +9,6 @@
 
 Website ini sekarang sudah siap deploy (Plug & Play) menggunakan Docker Compose.
 
-**🌐 Live Demo:** [https://restaurant.widifirmaan.web.id](https://restaurant.widifirmaan.web.id)
-
 ## 📸 Tampilan / Screenshots
 
 Berikut adalah cuplikan tampilan dari website yang telah berhasil di-restore:
